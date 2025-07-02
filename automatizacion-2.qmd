@@ -1,0 +1,905 @@
+---
+format:
+  revealjs:
+    logo: "imagenes/logo_portada2.png"
+    footer: "Unidad de Gobiernos de Datos"
+    slide-number: true
+    chalkboard: true
+    multiplex: false
+    preview-links: auto
+    page-layout: custom
+    scrollable: true
+    controls-layout: bottom-right
+    controls-tutorial: true
+    background-transition: fade
+    highlight-style: github
+    code-line-numbers: true
+    code-overflow: wrap
+    html-math-method: katex
+    css: ine_quarto_styles.css
+    margin: 0
+    width: 1300
+    auto-stretch: false
+    fontsize: 20pt
+
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+# 
+
+[<img src="imagenes/logo_portada2.png" width="40%"/>]{.center-justified}
+
+[**Automatización de Procesos con Bash y Linux**]{.big-par .center-justified}
+
+[**Unidad de Gobierno de Datos**]{.big-par .center-justified}
+
+[**Julio 2025**]{.big-par .center-justified}
+
+---
+
+## Contenidos de la clase 
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+![](imagenes/Linux.png){width="80"}
+
+### Bash y Linux
+
+::: {.incremental .medium-par}
+- Introducción a Linux y la terminal
+- Scripts bash básicos
+- Comandos esenciales de bash
+- Variables y estructuras de control
+- Manipulación de archivos y directorios
+- Pipes y redirecciones
+:::
+:::
+
+::: {.column width="50%"}
+
+![](imagenes/automatizacion.png){width="100"}
+
+### Automatización
+
+::: {.incremental .medium-par}
+- Qué es cron y para qué sirve
+- Programación de tareas automáticas
+- Monitoreo de uso de recursos
+- Automatización de reportes
+- Logging y manejo de errores
+- Buenas prácticas
+:::
+:::
+
+:::
+
+---
+
+## Objetivo de la clase
+
+::: incremental
+
+- Quedar habilitado en el uso básico de la terminal Linux
+
+- Entender la utilidad de la automatización de procesos
+- Quedar habilitados en el uso básico de cron para programar tareas
+- Aprender a monitorear recursos del sistema
+
+:::
+
+---
+
+## ¿Por qué automatizar procesos? {.medium-par}
+
+:::: {.columns}
+
+::: {.column width="75%" text-align="left" }
+
+::: incremental
+- Reduce errores humanos: los procesos manuales son propensos a errores
+
+- Ahorra tiempo: las tareas repetitivas consumen tiempo valioso
+
+- Mejora la consistencia: los procesos automatizados son predecibles
+
+- Permite trabajo 24/7: los procesos pueden ejecutarse sin supervisión
+
+:::
+
+::: {.incremental}
+- Facilita el escalamiento: es más fácil procesar grandes volúmenes de datos
+- Libera recursos humanos: el equipo puede enfocarse en tareas de mayor valor
+
+:::
+
+::: fragment
+Nos protege de:
+:::
+
+::: {.incremental}
+- Olvidos en procesos críticos
+- Inconsistencias en la ejecución de tareas
+- Sobrecarga de trabajo manual
+
+:::
+
+:::
+
+::: {.column width="25%"}
+![](imagenes/chaplin.gif){width="350"}
+:::
+
+::::
+
+---
+
+## Introducción a Linux y la Terminal {.medium-par}
+
+Linux es el sistema operativo más utilizado en servidores y para automatización
+
+![](imagenes/bash_command.gif){fig-align="center" width="350"}
+
+. . .
+
+### ¿Por qué Linux para automatización?
+
+::: {.incremental}
+- Estabilidad y confiabilidad
+- Herramientas nativas para automatización
+- Control total sobre el sistema
+- Eficiencia en el uso de recursos
+- Amplia disponibilidad en servidores
+:::
+
+---
+
+## Comandos Básicos de Bash {.medium-par}
+
+La terminal es nuestra herramienta principal para automatización
+
+. . .
+
+### Navegación y exploración
+
+```bash
+pwd                 # ¿Dónde estoy?
+ls                  # ¿Qué hay aquí?
+ls -la              # Listado detallado con archivos ocultos
+cd directorio       # Cambiar de directorio
+cd ..               # Subir un nivel
+cd ~                # Ir al directorio home
+```
+
+::: fragment
+
+### Manipulación de archivos
+
+```bash
+touch archivo.txt   # Crear archivo vacío
+mkdir directorio    # Crear directorio
+cp origen destino   # Copiar archivo
+mv origen destino   # Mover/renombrar archivo
+rm archivo          # Eliminar archivo
+rm -rf directorio   # Eliminar directorio y contenido
+```
+
+:::
+
+---
+
+## Comandos Básicos de Bash {.medium-par}
+
+### Visualización y manipulación de contenido
+
+```bash
+cat archivo.txt     # Mostrar contenido completo
+head archivo.txt    # Primeras 10 líneas
+tail archivo.txt    # Últimas 10 líneas
+tail -f archivo.log # Seguir archivo en tiempo real (útil para logs)
+grep "patrón" archivo   # Buscar texto en archivo
+wc -l archivo       # Contar líneas
+```
+
+::: fragment
+
+### Información del sistema
+
+```bash
+ps aux              # Procesos en ejecución
+top                 # Monitor de procesos en tiempo real
+df -h               # Espacio en disco
+free -h             # Memoria disponible
+uptime              # Tiempo de funcionamiento del sistema
+```
+
+:::
+
+::: fragment
+**¡Probemos estos comandos básicos!**
+:::
+---
+
+## Scripts Bash Básicos {.medium-par}
+
+Un script bash es un archivo de texto que contiene comandos que se ejecutan secuencialmente
+
+. . .
+
+### Estructura básica de un script
+
+```bash
+#!/bin/bash
+# Este es un comentario
+# La primera línea le dice al sistema qué intérprete usar
+
+echo "¡Hola mundo!"
+echo "Este es mi primer script"
+
+# Variables
+nombre="Juan"
+echo "Hola $nombre"
+
+# Obtener fecha actual
+fecha=$(date)
+echo "Fecha actual: $fecha"
+```
+
+::: fragment
+
+### Para ejecutar el script:
+
+```bash
+chmod +x mi_script.sh   # Dar permisos de ejecución
+./mi_script.sh          # Ejecutar el script
+```
+:::
+
+---
+
+## Permisos en Linux {.medium-par}
+
+Los permisos controlan quién puede leer, escribir o ejecutar archivos y directorios
+
+. . .
+
+### Estructura de permisos:
+
+```bash
+ls -la archivo.sh
+-rwxr-xr-- 1 usuario grupo 1234 jul 30 10:30 archivo.sh
+ │||││││││
+ │||│││││└─── otros: ejecución
+ │||││││└──── otros: escritura
+ │||│││└───── otros: lectura
+ │||││└────── grupo: ejecución
+ │||│└─────── grupo: escritura
+ │||└──────── grupo: lectura
+ ||└───────── propietario: ejecución
+ |└────────── propietario: escritura
+ └─────────── propietario: lectura 
+```
+
+::: fragment
+
+![](imagenes/file-permission-syntax-explained.jpg){fig-align="center" width="350"}
+:::
+
+---
+
+## Permisos en Linux {.medium-par}
+
+::: fragment
+
+### Comandos para cambiar permisos:
+
+```bash
+chmod +x script.sh      # Dar permisos de ejecución
+chmod 755 archivo       # rwxr-xr-x (propietario: rwx, otros: r-x)
+chmod 644 documento     # rw-r--r-- (propietario: rw, otros: r)
+chmod u+w archivo       # Dar escritura al usuario
+chmod g-x archivo       # Quitar ejecución al grupo
+```
+
+:::
+
+::: fragment
+
+### Cambiar propietario:
+
+```bash
+chown usuario:grupo archivo    # Cambiar propietario y grupo
+chown usuario archivo          # Solo cambiar propietario
+chgrp grupo archivo           # Solo cambiar grupo
+```
+
+:::
+
+::: fragment
+**Tener una noción de cómo funcionan los permisos es esencial para la seguridad y funcionamiento de scripts!**
+:::
+
+---
+
+## Variables y Estructuras de Control {.medium-par}
+
+### Variables
+
+```bash
+#!/bin/bash
+
+# Definir variables
+archivo="datos.csv"
+directorio="/home/usuario/datos"
+contador=0
+
+# Usar variables
+echo "Procesando archivo: $archivo"
+echo "En directorio: $directorio"
+echo "Contador: $contador"
+
+# Variables de entorno
+echo "Usuario actual: $USER"
+echo "Directorio home: $HOME"
+```
+
+::: fragment
+
+### Condicionales
+
+```bash
+#!/bin/bash
+
+archivo="datos.csv"
+
+if [ -f "$archivo" ]; then
+    echo "El archivo $archivo existe"
+    echo "Procesando..."
+else
+    echo "El archivo $archivo no existe"
+    echo "Creando archivo..."
+    touch "$archivo"
+fi
+```
+:::
+
+---
+
+## Variables y Estructuras de Control {.medium-par}
+
+### Bucles
+
+```bash
+#!/bin/bash
+
+# Bucle for con lista
+for archivo in *.csv; do
+    echo "Procesando: $archivo"
+    # Aquí iría el procesamiento
+done
+
+# Bucle for con rango
+for i in {1..5}; do
+    echo "Iteración $i"
+done
+
+# Bucle while
+contador=1
+while [ $contador -le 3 ]; do
+    echo "Ejecución número $contador"
+    contador=$((contador + 1))
+done
+```
+
+
+---
+
+## Pipes y Redirecciones {.medium-par}
+
+Los pipes (|) y redirecciones (>, >>) son fundamentales para automatización
+
+. . .
+
+### Pipes: pasar la salida de un comando a otro
+
+```bash
+# Contar líneas de archivos CSV
+ls *.csv | wc -l
+
+# Buscar procesos de R y mostrar solo el nombre
+ps aux | grep R | awk '{print $11}'
+
+# Ordenar y mostrar los 10 archivos más grandes
+ls -la | sort -k5 -nr | head -10
+
+# Procesar log: buscar errores y contar
+cat sistema.log | grep "ERROR" | wc -l
+```
+
+::: fragment
+
+### Redirecciones: enviar salida a archivos
+
+```bash
+# Guardar salida en archivo (sobrescribe)
+ls -la > listado.txt
+
+# Agregar salida al final del archivo
+date >> log_procesos.txt
+
+# Redirigir errores
+comando_que_falla 2> errores.log
+
+# Redirigir salida normal y errores
+comando > salida.log 2> errores.log
+```
+
+:::
+
+---
+
+## ¿Qué es Cron? {.medium-par}
+
+Cron es un programador de tareas basado en tiempo en sistemas Unix/Linux
+
+:::: columns
+
+
+
+
+
+::: {.column width="43%"}
+
+
+### ¿Para qué sirve?
+
+::: {.incremental}
+- Ejecutar scripts automáticamente a horas específicas
+- Procesar datos diariamente, semanalmente, mensualmente
+- Generar reportes automatizados
+- Hacer backups programados
+- Limpiar archivos temporales
+- Monitorear sistemas
+:::
+
+:::
+
+
+::: {.column width="57%"}
+
+::: fragment
+### ¿Cómo funciona?
+:::
+
+::: fragment
+- Cron es un **daemon** (servicio) que se ejecuta en segundo plano
+- Lee archivo llamado "**crontab**" que contiene programación de las tareas
+- Verifica cada minuto si hay tareas programadas para ejecutar
+- Ejecuta automáticamente los scripts en el momento especificado
+:::
+
+::: fragment
+- Cada usuario puede tener su propio crontab
+- Existe también un crontab del sistema para tareas administrativas
+- Los logs de ejecución se guardan automáticamente para monitoreo
+:::
+
+:::
+
+::::
+
+
+
+![](imagenes/cron-diagram.webp){fig-align="center" width="300"}
+
+
+---
+
+## Sintaxis de Cron {.medium-par}
+
+La sintaxis de cron tiene 5 campos seguidos del comando a ejecutar:
+
+:::: columns
+
+
+::: {.column width="30%" }
+```
+* * * * * comando
+│ │ │ │ │
+│ │ │ │ └─── día de la semana (0-6, 0 y 0 = domingo)
+│ │ │ └───── mes (1-12)
+│ │ └─────── día del mes (1-31)
+│ └───────── hora (0-23)
+└─────────── minuto (0-59)
+```
+:::
+
+::: {.column width="70%"}
+
+![](imagenes/cron_values.png){width=300}
+
+:::
+
+::::
+. . .
+
+### Ejemplos básicos:
+
+```bash
+# Ejecutar todos los días a las 2:30 AM
+30 2 * * * /home/usuario/scripts/backup.sh
+
+# Ejecutar cada lunes a las 9:00 AM
+0 9 * * 1 /home/usuario/scripts/reporte_semanal.sh
+
+# Ejecutar cada 15 minutos
+*/15 * * * * /home/usuario/scripts/monitoreo.sh
+
+# Ejecutar el primer día de cada mes a medianoche
+0 0 1 * * /home/usuario/scripts/reporte_mensual.sh
+```
+
+::: fragment
+
+Honestamente la sintaxis es un poco confusa. Recomendamos usar [crontab guru](https://crontab.guru/)
+para chequear que sus scripts vayan a correr cuando quieran que corran.
+:::
+
+---
+
+## Trabajando con Crontab {.medium-par}
+
+### Comandos para gestionar crontab:
+
+```bash
+crontab -l          # Listar tareas programadas actuales
+crontab -e          # Editar crontab (abre editor)
+crontab -r          # Eliminar todas las tareas programadas
+crontab archivo     # Cargar tareas desde un archivo
+```
+
+::: fragment
+
+### Ejemplo práctico: programar un script de procesamiento
+
+```bash
+# Editamos crontab
+crontab -e
+
+# Agregamos una línea para ejecutar procesamiento diario a las 6 AM
+
+# Éxitos y errores en un solo lugar
+0 6 * * * /home/usuario/scripts/procesar_datos.sh >> /home/usuario/logs/procesamiento.log 2>&1
+
+# Errores y éxitos en lugares separados:
+
+0 6 * * * /home/usuario/scripts/procesar_datos.sh >> /home/usuario/logs/procesamiento.log 2>>  /home/usuario/logs/error.log
+```
+:::
+
+::: fragment
+
+### Variables de entorno en cron:
+
+```bash
+# Al inicio del crontab, definir variables
+PATH=/usr/local/bin:/usr/bin:/bin
+MAILTO=admin@ine.gob.cl
+
+# Luego las tareas programadas
+0 6 * * * /home/usuario/scripts/procesar_datos.sh
+```
+:::
+
+::: fragment
+**Veamos en la consola cómo funciona en la práctica!**
+::: 
+
+---
+
+## Monitoreo de Uso de Recursos {.medium-par}
+
+Es crucial monitorear los recursos del sistema para asegurar el buen funcionamiento
+
+. . .
+
+### Comandos para monitoreo:
+
+```bash
+# CPU y memoria en tiempo real
+top
+htop        # Versión mejorada de top (si está instalado)
+
+# Uso de disco
+df -h       # Espacio disponible por partición
+du -sh *    # Tamaño de directorios actuales
+
+# Memoria
+free -h     # Memoria RAM disponible
+
+# Procesos específicos
+ps aux | grep python    # Buscar procesos de Python
+pgrep -f "mi_script"    # Buscar proceso por nombre
+```
+
+::: fragment
+
+### Script para monitoreo automático:
+
+```bash
+#!/bin/bash
+# monitoreo.sh
+
+echo "=== Reporte de Sistema $(date) ===" >> /var/log/sistema.log
+echo "CPU y Memoria:" >> /var/log/sistema.log
+top -bn1 | head -5 >> /var/log/sistema.log
+echo "Espacio en disco:" >> /var/log/sistema.log
+df -h >> /var/log/sistema.log
+echo "================================" >> /var/log/sistema.log
+```
+:::
+
+---
+
+## Automatización de Reportes {.medium-par}
+
+Combinemos todo lo aprendido para automatizar la generación de reportes
+
+. . .
+
+### Script completo de automatización:
+
+```bash
+#!/bin/bash
+# generar_reporte.sh
+
+# Variables
+FECHA=$(date +"%Y-%m-%d")
+DIRECTORIO_DATOS="/home/usuario/datos"
+DIRECTORIO_REPORTES="/home/usuario/reportes"
+ARCHIVO_LOG="/home/usuario/logs/reportes.log"
+
+# Función para logging
+log_mensaje() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> $ARCHIVO_LOG
+}
+
+# Inicio del proceso
+log_mensaje "Iniciando generación de reporte"
+
+# Verificar que existe el directorio de datos
+if [ ! -d "$DIRECTORIO_DATOS" ]; then
+    log_mensaje "ERROR: Directorio de datos no existe"
+    exit 1
+fi
+
+# Crear directorio de reportes si no existe
+mkdir -p "$DIRECTORIO_REPORTES"
+
+# Procesar datos (ejemplo con R)
+Rscript /home/usuario/scripts/procesar_datos.R "$DIRECTORIO_DATOS" "$DIRECTORIO_REPORTES/reporte_$FECHA.html"
+
+# Verificar si el reporte se generó correctamente
+if [ $? -eq 0 ]; then
+    log_mensaje "Reporte generado exitosamente: reporte_$FECHA.html"
+else
+    log_mensaje "ERROR: Falló la generación del reporte"
+    exit 1
+fi
+
+
+# Limpiar archivos temporales de más de 7 días
+find /tmp -name "temp_*" -mtime +7 -delete
+log_mensaje "Archivos temporales antiguos eliminados"
+
+# Comprimir reportes antiguos (más de 30 días)
+find "$DIRECTORIO_REPORTES" -name "*.html" -mtime +30 -exec gzip {} \;
+log_mensaje "Reportes antiguos comprimidos"
+
+# Enviar notificación por email (si está configurado)
+if command -v mail &> /dev/null; then
+    echo "Reporte diario generado: reporte_$FECHA.html" | mail -s "Reporte Diario" admin@ine.gob.cl
+    log_mensaje "Notificación enviada por email"
+fi
+
+log_mensaje "Proceso completado exitosamente"
+
+```
+
+---
+
+## Automatización de Reportes {.medium-par}
+
+
+### Programar en cron:
+
+```bash
+# Ejecutar reporte diario a las 7 AM
+0 7 * * * /home/usuario/scripts/generar_reporte.sh
+
+# Monitoreo cada 30 minutos durante horario laboral
+*/30 9-18 * * 1-5 /home/usuario/scripts/monitoreo.sh
+```
+
+---
+
+## Logging y Manejo de Errores {.medium-par}
+
+Es fundamental tener un buen sistema de logging para depurar problemas
+
+. . .
+
+### Estructura básica de logging:
+
+```bash
+#!/bin/bash
+# Script con logging robusto
+
+SCRIPT_NAME=$(basename "$0")
+LOG_FILE="/var/log/$SCRIPT_NAME.log"
+
+# Función de logging
+log() {
+    local nivel=$1
+    shift
+    echo "$(date '+%Y-%m-%d %H:%M:%S') [$nivel] $SCRIPT_NAME: $*" >> $LOG_FILE
+}
+
+# Capturar errores automáticamente
+set -e  # Salir si cualquier comando falla
+trap 'log ERROR "Script falló en línea $LINENO"' ERR
+
+# Uso del logging
+log INFO "Iniciando proceso"
+
+# Ejemplo de verificación con logging
+if [ ! -f "archivo_requerido.txt" ]; then
+    log ERROR "Archivo requerido no encontrado"
+    exit 1
+fi
+
+log INFO "Archivo encontrado, continuando..."
+```
+
+---
+
+## Buenas Prácticas {.medium-par}
+
+### Para scripts bash:
+
+::: {.incremental}
+- Usar rutas absolutas en cron (no asume variables de entorno)
+- Validar que existen archivos y directorios antes de usarlos
+- Usar logging consistente
+- Establecer timeouts para comandos que pueden colgarse
+- Usar variables para valores que pueden cambiar
+- Comentar el código adecuadamente
+:::
+
+::: fragment
+
+### Para cron:
+
+::: {.incremental}
+- Redirigir siempre la salida a archivos de log
+- Usar rutas absolutas para todos los comandos y archivos
+- Establecer variables de entorno necesarias en el crontab
+- Probar scripts manualmente antes de programarlos
+- Monitorear los logs regularmente
+:::
+
+:::
+
+
+::: fragment
+
+### Para monitoreo:
+
+::: {.incremental}
+- Establecer alertas para recursos críticos
+- Mantener históricos de uso de recursos
+- Automatizar la limpieza de logs antiguos
+:::
+
+:::
+
+---
+
+## Ejemplo Práctico Completo {.medium-par}
+
+Vamos a crear un sistema completo de automatización:
+
+```bash
+# Estructura de archivos
+/home/usuario/
+├── scripts/
+│   ├── procesar_datos.sh
+│   ├── monitoreo.sh
+│   └── limpiar_sistema.sh
+├── logs/
+├── datos/
+└── reportes/
+```
+
+. . .
+
+**¡Implementemos un ejemplo completo paso a paso!**
+
+1. Crear la estructura de directorios
+2. Escribir scripts de procesamiento
+3. Configurar monitoreo
+4. Programar tareas en cron
+5. Probar el sistema completo
+
+---
+
+## Torpedo de Comandos
+
+::: {.columns}
+
+::: {.column width="50%}
+**Navegación:**
+```bash
+pwd, ls -la, cd, mkdir, cp, mv, rm
+```
+
+**Visualización:**
+```bash
+cat, head, tail -f, grep, wc -l
+```
+
+**Sistema:**
+```bash
+ps aux, top, df -h, free -h
+```
+:::
+
+::: {.column width="50%"}
+**Cron:**
+```bash
+crontab -l    # listar tareas
+crontab -e    # editar tareas
+```
+
+**Permisos:**
+```bash
+chmod +x script.sh
+```
+
+**Redirecciones:**
+```bash
+comando > archivo
+comando >> archivo
+comando 2> errores.log
+```
+:::
+
+:::
+
+---
+
+## Material de Consulta 
+
+[Bash Scripting Tutorial](https://linuxconfig.org/bash-scripting-tutorial)
+
+[Cron y Crontab Guide](https://crontab.guru/)
+
+[Linux Command Line Basics](https://ubuntu.com/tutorials/command-line-for-beginners)
+
+[Advanced Bash-Scripting Guide](https://tldp.org/LDP/abs/html/)
+
+
+# 
+
+[<img src="imagenes/logo_portada2.png" width="40%"/>]{.center-justified}
+
+[**Automatización de Procesos con Bash y Linux**]{.big-par .center-justified}
+
+[**Unidad de Gobierno de Datos**]{.big-par .center-justified}
+
+[**Julio 2025**]{.big-par .center-justified}
+

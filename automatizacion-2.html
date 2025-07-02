@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="automatizacion-2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="automatizacion-2_files/libs/quarto-html/tabby.min.js"></script>
+<script src="automatizacion-2_files/libs/quarto-html/popper.min.js"></script>
+<script src="automatizacion-2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="automatizacion-2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="automatizacion-2_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="automatizacion-2_files/libs/quarto-html/quarto-syntax-highlighting-4a990d8dcb58f517c7c86712b8f2ac7c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.31">
+
+  <title>automatizacion-2</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="automatizacion-2_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="automatizacion-2_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="automatizacion-2_files/libs/revealjs/dist/theme/quarto-a52bcae803a0036af500219a2df5faad.css">
+  <link rel="stylesheet" href="ine_quarto_styles.css">
+  <link href="automatizacion-2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="automatizacion-2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="automatizacion-2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="automatizacion-2_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="automatizacion-2_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="automatizacion-2_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+
+<section>
+<section id="section" class="title-slide slide level1 center">
+<h1></h1>
+<p><span class="center-justified"><img src="imagenes/logo_portada2.png" width="40%"></span></p>
+<p><span class="big-par center-justified"><strong>Automatización de Procesos con Bash y Linux</strong></span></p>
+<p><span class="big-par center-justified"><strong>Unidad de Gobierno de Datos</strong></span></p>
+<p><span class="big-par center-justified"><strong>Julio 2025</strong></span></p>
+</section>
+<section id="contenidos-de-la-clase" class="slide level2">
+<h2>Contenidos de la clase</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="imagenes/Linux.png" width="80"></p>
+<h3 id="bash-y-linux">Bash y Linux</h3>
+<div class="medium-par">
+<ul>
+<li class="fragment">Introducción a Linux y la terminal</li>
+<li class="fragment">Scripts bash básicos</li>
+<li class="fragment">Comandos esenciales de bash</li>
+<li class="fragment">Variables y estructuras de control</li>
+<li class="fragment">Manipulación de archivos y directorios</li>
+<li class="fragment">Pipes y redirecciones</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="imagenes/automatizacion.png" width="100"></p>
+<h3 id="automatización">Automatización</h3>
+<div class="medium-par">
+<ul>
+<li class="fragment">Qué es cron y para qué sirve</li>
+<li class="fragment">Programación de tareas automáticas</li>
+<li class="fragment">Monitoreo de uso de recursos</li>
+<li class="fragment">Automatización de reportes</li>
+<li class="fragment">Logging y manejo de errores</li>
+<li class="fragment">Buenas prácticas</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="objetivo-de-la-clase" class="slide level2">
+<h2>Objetivo de la clase</h2>
+<ul>
+<li class="fragment"><p>Quedar habilitado en el uso básico de la terminal Linux</p></li>
+<li class="fragment"><p>Entender la utilidad de la automatización de procesos</p></li>
+<li class="fragment"><p>Quedar habilitados en el uso básico de cron para programar tareas</p></li>
+<li class="fragment"><p>Aprender a monitorear recursos del sistema</p></li>
+</ul>
+</section>
+<section id="por-qué-automatizar-procesos" class="slide level2 medium-par">
+<h2>¿Por qué automatizar procesos?</h2>
+<div class="columns">
+<div class="column" data-text-align="left" style="width:75%;">
+<ul>
+<li class="fragment"><p>Reduce errores humanos: los procesos manuales son propensos a errores</p></li>
+<li class="fragment"><p>Ahorra tiempo: las tareas repetitivas consumen tiempo valioso</p></li>
+<li class="fragment"><p>Mejora la consistencia: los procesos automatizados son predecibles</p></li>
+<li class="fragment"><p>Permite trabajo 24/7: los procesos pueden ejecutarse sin supervisión</p></li>
+</ul>
+<ul>
+<li class="fragment">Facilita el escalamiento: es más fácil procesar grandes volúmenes de datos</li>
+<li class="fragment">Libera recursos humanos: el equipo puede enfocarse en tareas de mayor valor</li>
+</ul>
+<div class="fragment">
+<p>Nos protege de:</p>
+</div>
+<ul>
+<li class="fragment">Olvidos en procesos críticos</li>
+<li class="fragment">Inconsistencias en la ejecución de tareas</li>
+<li class="fragment">Sobrecarga de trabajo manual</li>
+</ul>
+</div><div class="column" style="width:25%;">
+<p><img data-src="imagenes/chaplin.gif" width="350"></p>
+</div></div>
+</section>
+<section id="introducción-a-linux-y-la-terminal" class="slide level2 medium-par">
+<h2>Introducción a Linux y la Terminal</h2>
+<p>Linux es el sistema operativo más utilizado en servidores y para automatización</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="imagenes/bash_command.gif" class="quarto-figure quarto-figure-center" width="350"></p>
+</figure>
+</div>
+<div class="fragment">
+<h3 id="por-qué-linux-para-automatización">¿Por qué Linux para automatización?</h3>
+<ul>
+<li class="fragment">Estabilidad y confiabilidad</li>
+<li class="fragment">Herramientas nativas para automatización</li>
+<li class="fragment">Control total sobre el sistema</li>
+<li class="fragment">Eficiencia en el uso de recursos</li>
+<li class="fragment">Amplia disponibilidad en servidores</li>
+</ul>
+</div>
+</section>
+<section id="comandos-básicos-de-bash" class="slide level2 medium-par">
+<h2>Comandos Básicos de Bash</h2>
+<p>La terminal es nuestra herramienta principal para automatización</p>
+<div class="fragment">
+<h3 id="navegación-y-exploración">Navegación y exploración</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href=""></a><span class="bu">pwd</span>                 <span class="co"># ¿Dónde estoy?</span></span>
+<span id="cb1-2"><a href=""></a><span class="fu">ls</span>                  <span class="co"># ¿Qué hay aquí?</span></span>
+<span id="cb1-3"><a href=""></a><span class="fu">ls</span> <span class="at">-la</span>              <span class="co"># Listado detallado con archivos ocultos</span></span>
+<span id="cb1-4"><a href=""></a><span class="bu">cd</span> directorio       <span class="co"># Cambiar de directorio</span></span>
+<span id="cb1-5"><a href=""></a><span class="bu">cd</span> ..               <span class="co"># Subir un nivel</span></span>
+<span id="cb1-6"><a href=""></a><span class="bu">cd</span> ~                <span class="co"># Ir al directorio home</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<h3 id="manipulación-de-archivos">Manipulación de archivos</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href=""></a><span class="fu">touch</span> archivo.txt   <span class="co"># Crear archivo vacío</span></span>
+<span id="cb2-2"><a href=""></a><span class="fu">mkdir</span> directorio    <span class="co"># Crear directorio</span></span>
+<span id="cb2-3"><a href=""></a><span class="fu">cp</span> origen destino   <span class="co"># Copiar archivo</span></span>
+<span id="cb2-4"><a href=""></a><span class="fu">mv</span> origen destino   <span class="co"># Mover/renombrar archivo</span></span>
+<span id="cb2-5"><a href=""></a><span class="fu">rm</span> archivo          <span class="co"># Eliminar archivo</span></span>
+<span id="cb2-6"><a href=""></a><span class="fu">rm</span> <span class="at">-rf</span> directorio   <span class="co"># Eliminar directorio y contenido</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="comandos-básicos-de-bash-1" class="slide level2 medium-par">
+<h2>Comandos Básicos de Bash</h2>
+<h3 id="visualización-y-manipulación-de-contenido">Visualización y manipulación de contenido</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href=""></a><span class="fu">cat</span> archivo.txt     <span class="co"># Mostrar contenido completo</span></span>
+<span id="cb3-2"><a href=""></a><span class="fu">head</span> archivo.txt    <span class="co"># Primeras 10 líneas</span></span>
+<span id="cb3-3"><a href=""></a><span class="fu">tail</span> archivo.txt    <span class="co"># Últimas 10 líneas</span></span>
+<span id="cb3-4"><a href=""></a><span class="fu">tail</span> <span class="at">-f</span> archivo.log <span class="co"># Seguir archivo en tiempo real (útil para logs)</span></span>
+<span id="cb3-5"><a href=""></a><span class="fu">grep</span> <span class="st">"patrón"</span> archivo   <span class="co"># Buscar texto en archivo</span></span>
+<span id="cb3-6"><a href=""></a><span class="fu">wc</span> <span class="at">-l</span> archivo       <span class="co"># Contar líneas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<h3 id="información-del-sistema">Información del sistema</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href=""></a><span class="fu">ps</span> aux              <span class="co"># Procesos en ejecución</span></span>
+<span id="cb4-2"><a href=""></a><span class="ex">top</span>                 <span class="co"># Monitor de procesos en tiempo real</span></span>
+<span id="cb4-3"><a href=""></a><span class="fu">df</span> <span class="at">-h</span>               <span class="co"># Espacio en disco</span></span>
+<span id="cb4-4"><a href=""></a><span class="fu">free</span> <span class="at">-h</span>             <span class="co"># Memoria disponible</span></span>
+<span id="cb4-5"><a href=""></a><span class="fu">uptime</span>              <span class="co"># Tiempo de funcionamiento del sistema</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p><strong>¡Probemos estos comandos básicos!</strong></p>
+</div>
+</section>
+<section id="scripts-bash-básicos" class="slide level2 medium-par">
+<h2>Scripts Bash Básicos</h2>
+<p>Un script bash es un archivo de texto que contiene comandos que se ejecutan secuencialmente</p>
+<div class="fragment">
+<h3 id="estructura-básica-de-un-script">Estructura básica de un script</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href=""></a><span class="co">#!/bin/bash</span></span>
+<span id="cb5-2"><a href=""></a><span class="co"># Este es un comentario</span></span>
+<span id="cb5-3"><a href=""></a><span class="co"># La primera línea le dice al sistema qué intérprete usar</span></span>
+<span id="cb5-4"><a href=""></a></span>
+<span id="cb5-5"><a href=""></a><span class="bu">echo</span> <span class="st">"¡Hola mundo!"</span></span>
+<span id="cb5-6"><a href=""></a><span class="bu">echo</span> <span class="st">"Este es mi primer script"</span></span>
+<span id="cb5-7"><a href=""></a></span>
+<span id="cb5-8"><a href=""></a><span class="co"># Variables</span></span>
+<span id="cb5-9"><a href=""></a><span class="va">nombre</span><span class="op">=</span><span class="st">"Juan"</span></span>
+<span id="cb5-10"><a href=""></a><span class="bu">echo</span> <span class="st">"Hola </span><span class="va">$nombre</span><span class="st">"</span></span>
+<span id="cb5-11"><a href=""></a></span>
+<span id="cb5-12"><a href=""></a><span class="co"># Obtener fecha actual</span></span>
+<span id="cb5-13"><a href=""></a><span class="va">fecha</span><span class="op">=</span><span class="va">$(</span><span class="fu">date</span><span class="va">)</span></span>
+<span id="cb5-14"><a href=""></a><span class="bu">echo</span> <span class="st">"Fecha actual: </span><span class="va">$fecha</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<h3 id="para-ejecutar-el-script">Para ejecutar el script:</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href=""></a><span class="fu">chmod</span> +x mi_script.sh   <span class="co"># Dar permisos de ejecución</span></span>
+<span id="cb6-2"><a href=""></a><span class="ex">./mi_script.sh</span>          <span class="co"># Ejecutar el script</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="permisos-en-linux" class="slide level2 medium-par">
+<h2>Permisos en Linux</h2>
+<p>Los permisos controlan quién puede leer, escribir o ejecutar archivos y directorios</p>
+<div class="fragment">
+<h3 id="estructura-de-permisos">Estructura de permisos:</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href=""></a><span class="fu">ls</span> <span class="at">-la</span> archivo.sh</span>
+<span id="cb7-2"><a href=""></a><span class="ex">-rwxr-xr--</span> 1 usuario grupo 1234 jul 30 10:30 archivo.sh</span>
+<span id="cb7-3"><a href=""></a> <span class="ex">│</span><span class="kw">||</span><span class="ex">││││││</span></span>
+<span id="cb7-4"><a href=""></a> <span class="ex">│</span><span class="kw">||</span><span class="ex">│││││└───</span> otros: ejecución</span>
+<span id="cb7-5"><a href=""></a> <span class="ex">│</span><span class="kw">||</span><span class="ex">││││└────</span> otros: escritura</span>
+<span id="cb7-6"><a href=""></a> <span class="ex">│</span><span class="kw">||</span><span class="ex">│││└─────</span> otros: lectura</span>
+<span id="cb7-7"><a href=""></a> <span class="ex">│</span><span class="kw">||</span><span class="ex">││└──────</span> grupo: ejecución</span>
+<span id="cb7-8"><a href=""></a> <span class="ex">│</span><span class="kw">||</span><span class="ex">│└───────</span> grupo: escritura</span>
+<span id="cb7-9"><a href=""></a> <span class="ex">│</span><span class="kw">||</span><span class="ex">└────────</span> grupo: lectura</span>
+<span id="cb7-10"><a href=""></a> <span class="kw">||</span><span class="ex">└─────────</span> propietario: ejecución</span>
+<span id="cb7-11"><a href=""></a> <span class="kw">|</span><span class="ex">└──────────</span> propietario: escritura</span>
+<span id="cb7-12"><a href=""></a> <span class="ex">└───────────</span> propietario: lectura </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="imagenes/file-permission-syntax-explained.jpg" class="quarto-figure quarto-figure-center" width="350"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="permisos-en-linux-1" class="slide level2 medium-par">
+<h2>Permisos en Linux</h2>
+<div class="fragment">
+<h3 id="comandos-para-cambiar-permisos">Comandos para cambiar permisos:</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href=""></a><span class="fu">chmod</span> +x script.sh      <span class="co"># Dar permisos de ejecución</span></span>
+<span id="cb8-2"><a href=""></a><span class="fu">chmod</span> 755 archivo       <span class="co"># rwxr-xr-x (propietario: rwx, otros: r-x)</span></span>
+<span id="cb8-3"><a href=""></a><span class="fu">chmod</span> 644 documento     <span class="co"># rw-r--r-- (propietario: rw, otros: r)</span></span>
+<span id="cb8-4"><a href=""></a><span class="fu">chmod</span> u+w archivo       <span class="co"># Dar escritura al usuario</span></span>
+<span id="cb8-5"><a href=""></a><span class="fu">chmod</span> g-x archivo       <span class="co"># Quitar ejecución al grupo</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<h3 id="cambiar-propietario">Cambiar propietario:</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href=""></a><span class="fu">chown</span> usuario:grupo archivo    <span class="co"># Cambiar propietario y grupo</span></span>
+<span id="cb9-2"><a href=""></a><span class="fu">chown</span> usuario archivo          <span class="co"># Solo cambiar propietario</span></span>
+<span id="cb9-3"><a href=""></a><span class="fu">chgrp</span> grupo archivo           <span class="co"># Solo cambiar grupo</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p><strong>Tener una noción de cómo funcionan los permisos es esencial para la seguridad y funcionamiento de scripts!</strong></p>
+</div>
+</section>
+<section id="variables-y-estructuras-de-control" class="slide level2 medium-par">
+<h2>Variables y Estructuras de Control</h2>
+<h3 id="variables">Variables</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href=""></a><span class="co">#!/bin/bash</span></span>
+<span id="cb10-2"><a href=""></a></span>
+<span id="cb10-3"><a href=""></a><span class="co"># Definir variables</span></span>
+<span id="cb10-4"><a href=""></a><span class="va">archivo</span><span class="op">=</span><span class="st">"datos.csv"</span></span>
+<span id="cb10-5"><a href=""></a><span class="va">directorio</span><span class="op">=</span><span class="st">"/home/usuario/datos"</span></span>
+<span id="cb10-6"><a href=""></a><span class="va">contador</span><span class="op">=</span>0</span>
+<span id="cb10-7"><a href=""></a></span>
+<span id="cb10-8"><a href=""></a><span class="co"># Usar variables</span></span>
+<span id="cb10-9"><a href=""></a><span class="bu">echo</span> <span class="st">"Procesando archivo: </span><span class="va">$archivo</span><span class="st">"</span></span>
+<span id="cb10-10"><a href=""></a><span class="bu">echo</span> <span class="st">"En directorio: </span><span class="va">$directorio</span><span class="st">"</span></span>
+<span id="cb10-11"><a href=""></a><span class="bu">echo</span> <span class="st">"Contador: </span><span class="va">$contador</span><span class="st">"</span></span>
+<span id="cb10-12"><a href=""></a></span>
+<span id="cb10-13"><a href=""></a><span class="co"># Variables de entorno</span></span>
+<span id="cb10-14"><a href=""></a><span class="bu">echo</span> <span class="st">"Usuario actual: </span><span class="va">$USER</span><span class="st">"</span></span>
+<span id="cb10-15"><a href=""></a><span class="bu">echo</span> <span class="st">"Directorio home: </span><span class="va">$HOME</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<h3 id="condicionales">Condicionales</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href=""></a><span class="co">#!/bin/bash</span></span>
+<span id="cb11-2"><a href=""></a></span>
+<span id="cb11-3"><a href=""></a><span class="va">archivo</span><span class="op">=</span><span class="st">"datos.csv"</span></span>
+<span id="cb11-4"><a href=""></a></span>
+<span id="cb11-5"><a href=""></a><span class="cf">if</span> <span class="bu">[</span> <span class="ot">-f</span> <span class="st">"</span><span class="va">$archivo</span><span class="st">"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb11-6"><a href=""></a>    <span class="bu">echo</span> <span class="st">"El archivo </span><span class="va">$archivo</span><span class="st"> existe"</span></span>
+<span id="cb11-7"><a href=""></a>    <span class="bu">echo</span> <span class="st">"Procesando..."</span></span>
+<span id="cb11-8"><a href=""></a><span class="cf">else</span></span>
+<span id="cb11-9"><a href=""></a>    <span class="bu">echo</span> <span class="st">"El archivo </span><span class="va">$archivo</span><span class="st"> no existe"</span></span>
+<span id="cb11-10"><a href=""></a>    <span class="bu">echo</span> <span class="st">"Creando archivo..."</span></span>
+<span id="cb11-11"><a href=""></a>    <span class="fu">touch</span> <span class="st">"</span><span class="va">$archivo</span><span class="st">"</span></span>
+<span id="cb11-12"><a href=""></a><span class="cf">fi</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="variables-y-estructuras-de-control-1" class="slide level2 medium-par">
+<h2>Variables y Estructuras de Control</h2>
+<h3 id="bucles">Bucles</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href=""></a><span class="co">#!/bin/bash</span></span>
+<span id="cb12-2"><a href=""></a></span>
+<span id="cb12-3"><a href=""></a><span class="co"># Bucle for con lista</span></span>
+<span id="cb12-4"><a href=""></a><span class="cf">for</span> archivo <span class="kw">in</span> <span class="pp">*</span>.csv<span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb12-5"><a href=""></a>    <span class="bu">echo</span> <span class="st">"Procesando: </span><span class="va">$archivo</span><span class="st">"</span></span>
+<span id="cb12-6"><a href=""></a>    <span class="co"># Aquí iría el procesamiento</span></span>
+<span id="cb12-7"><a href=""></a><span class="cf">done</span></span>
+<span id="cb12-8"><a href=""></a></span>
+<span id="cb12-9"><a href=""></a><span class="co"># Bucle for con rango</span></span>
+<span id="cb12-10"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="dt">{</span><span class="dv">1</span><span class="dt">..</span><span class="dv">5</span><span class="dt">}</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb12-11"><a href=""></a>    <span class="bu">echo</span> <span class="st">"Iteración </span><span class="va">$i</span><span class="st">"</span></span>
+<span id="cb12-12"><a href=""></a><span class="cf">done</span></span>
+<span id="cb12-13"><a href=""></a></span>
+<span id="cb12-14"><a href=""></a><span class="co"># Bucle while</span></span>
+<span id="cb12-15"><a href=""></a><span class="va">contador</span><span class="op">=</span>1</span>
+<span id="cb12-16"><a href=""></a><span class="cf">while</span> <span class="bu">[</span> <span class="va">$contador</span> <span class="ot">-le</span> 3 <span class="bu">]</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb12-17"><a href=""></a>    <span class="bu">echo</span> <span class="st">"Ejecución número </span><span class="va">$contador</span><span class="st">"</span></span>
+<span id="cb12-18"><a href=""></a>    <span class="va">contador</span><span class="op">=</span><span class="va">$((contador</span> <span class="op">+</span> <span class="dv">1</span><span class="va">))</span></span>
+<span id="cb12-19"><a href=""></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pipes-y-redirecciones" class="slide level2 medium-par">
+<h2>Pipes y Redirecciones</h2>
+<p>Los pipes (|) y redirecciones (&gt;, &gt;&gt;) son fundamentales para automatización</p>
+<div class="fragment">
+<h3 id="pipes-pasar-la-salida-de-un-comando-a-otro">Pipes: pasar la salida de un comando a otro</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href=""></a><span class="co"># Contar líneas de archivos CSV</span></span>
+<span id="cb13-2"><a href=""></a><span class="fu">ls</span> <span class="pp">*</span>.csv <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
+<span id="cb13-3"><a href=""></a></span>
+<span id="cb13-4"><a href=""></a><span class="co"># Buscar procesos de R y mostrar solo el nombre</span></span>
+<span id="cb13-5"><a href=""></a><span class="fu">ps</span> aux <span class="kw">|</span> <span class="fu">grep</span> R <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'{print $11}'</span></span>
+<span id="cb13-6"><a href=""></a></span>
+<span id="cb13-7"><a href=""></a><span class="co"># Ordenar y mostrar los 10 archivos más grandes</span></span>
+<span id="cb13-8"><a href=""></a><span class="fu">ls</span> <span class="at">-la</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-k5</span> <span class="at">-nr</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-10</span></span>
+<span id="cb13-9"><a href=""></a></span>
+<span id="cb13-10"><a href=""></a><span class="co"># Procesar log: buscar errores y contar</span></span>
+<span id="cb13-11"><a href=""></a><span class="fu">cat</span> sistema.log <span class="kw">|</span> <span class="fu">grep</span> <span class="st">"ERROR"</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<h3 id="redirecciones-enviar-salida-a-archivos">Redirecciones: enviar salida a archivos</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href=""></a><span class="co"># Guardar salida en archivo (sobrescribe)</span></span>
+<span id="cb14-2"><a href=""></a><span class="fu">ls</span> <span class="at">-la</span> <span class="op">&gt;</span> listado.txt</span>
+<span id="cb14-3"><a href=""></a></span>
+<span id="cb14-4"><a href=""></a><span class="co"># Agregar salida al final del archivo</span></span>
+<span id="cb14-5"><a href=""></a><span class="fu">date</span> <span class="op">&gt;&gt;</span> log_procesos.txt</span>
+<span id="cb14-6"><a href=""></a></span>
+<span id="cb14-7"><a href=""></a><span class="co"># Redirigir errores</span></span>
+<span id="cb14-8"><a href=""></a><span class="ex">comando_que_falla</span> <span class="dv">2</span><span class="op">&gt;</span> errores.log</span>
+<span id="cb14-9"><a href=""></a></span>
+<span id="cb14-10"><a href=""></a><span class="co"># Redirigir salida normal y errores</span></span>
+<span id="cb14-11"><a href=""></a><span class="ex">comando</span> <span class="op">&gt;</span> salida.log <span class="dv">2</span><span class="op">&gt;</span> errores.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="qué-es-cron" class="slide level2 medium-par">
+<h2>¿Qué es Cron?</h2>
+<p>Cron es un programador de tareas basado en tiempo en sistemas Unix/Linux</p>
+<div class="columns">
+<div class="column" style="width:43%;">
+<h3 id="para-qué-sirve">¿Para qué sirve?</h3>
+<ul>
+<li class="fragment">Ejecutar scripts automáticamente a horas específicas</li>
+<li class="fragment">Procesar datos diariamente, semanalmente, mensualmente</li>
+<li class="fragment">Generar reportes automatizados</li>
+<li class="fragment">Hacer backups programados</li>
+<li class="fragment">Limpiar archivos temporales</li>
+<li class="fragment">Monitorear sistemas</li>
+</ul>
+</div><div class="column" style="width:57%;">
+<div class="fragment">
+<h3 id="cómo-funciona">¿Cómo funciona?</h3>
+</div>
+<div class="fragment">
+<ul>
+<li>Cron es un <strong>daemon</strong> (servicio) que se ejecuta en segundo plano</li>
+<li>Lee archivo llamado “<strong>crontab</strong>” que contiene programación de las tareas</li>
+<li>Verifica cada minuto si hay tareas programadas para ejecutar</li>
+<li>Ejecuta automáticamente los scripts en el momento especificado</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Cada usuario puede tener su propio crontab</li>
+<li>Existe también un crontab del sistema para tareas administrativas</li>
+<li>Los logs de ejecución se guardan automáticamente para monitoreo</li>
+</ul>
+</div>
+</div></div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="imagenes/cron-diagram.webp" class="quarto-figure quarto-figure-center" width="300"></p>
+</figure>
+</div>
+</section>
+<section id="sintaxis-de-cron" class="slide level2 medium-par">
+<h2>Sintaxis de Cron</h2>
+<p>La sintaxis de cron tiene 5 campos seguidos del comando a ejecutar:</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<pre><code>* * * * * comando
+│ │ │ │ │
+│ │ │ │ └─── día de la semana (0-6, 0 y 0 = domingo)
+│ │ │ └───── mes (1-12)
+│ │ └─────── día del mes (1-31)
+│ └───────── hora (0-23)
+└─────────── minuto (0-59)</code></pre>
+</div><div class="column" style="width:70%;">
+<p><img data-src="imagenes/cron_values.png" width="300"></p>
+</div></div>
+<div class="fragment">
+<h3 id="ejemplos-básicos">Ejemplos básicos:</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href=""></a><span class="co"># Ejecutar todos los días a las 2:30 AM</span></span>
+<span id="cb16-2"><a href=""></a><span class="ex">30</span> 2 <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> /home/usuario/scripts/backup.sh</span>
+<span id="cb16-3"><a href=""></a></span>
+<span id="cb16-4"><a href=""></a><span class="co"># Ejecutar cada lunes a las 9:00 AM</span></span>
+<span id="cb16-5"><a href=""></a><span class="ex">0</span> 9 <span class="pp">*</span> <span class="pp">*</span> 1 /home/usuario/scripts/reporte_semanal.sh</span>
+<span id="cb16-6"><a href=""></a></span>
+<span id="cb16-7"><a href=""></a><span class="co"># Ejecutar cada 15 minutos</span></span>
+<span id="cb16-8"><a href=""></a><span class="ex">*/15</span> <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> /home/usuario/scripts/monitoreo.sh</span>
+<span id="cb16-9"><a href=""></a></span>
+<span id="cb16-10"><a href=""></a><span class="co"># Ejecutar el primer día de cada mes a medianoche</span></span>
+<span id="cb16-11"><a href=""></a><span class="ex">0</span> 0 1 <span class="pp">*</span> <span class="pp">*</span> /home/usuario/scripts/reporte_mensual.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<p>Honestamente la sintaxis es un poco confusa. Recomendamos usar <a href="https://crontab.guru/">crontab guru</a> para chequear que sus scripts vayan a correr cuando quieran que corran.</p>
+</div>
+</div>
+</section>
+<section id="trabajando-con-crontab" class="slide level2 medium-par">
+<h2>Trabajando con Crontab</h2>
+<h3 id="comandos-para-gestionar-crontab">Comandos para gestionar crontab:</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href=""></a><span class="fu">crontab</span> <span class="at">-l</span>          <span class="co"># Listar tareas programadas actuales</span></span>
+<span id="cb17-2"><a href=""></a><span class="fu">crontab</span> <span class="at">-e</span>          <span class="co"># Editar crontab (abre editor)</span></span>
+<span id="cb17-3"><a href=""></a><span class="fu">crontab</span> <span class="at">-r</span>          <span class="co"># Eliminar todas las tareas programadas</span></span>
+<span id="cb17-4"><a href=""></a><span class="fu">crontab</span> archivo     <span class="co"># Cargar tareas desde un archivo</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<h3 id="ejemplo-práctico-programar-un-script-de-procesamiento">Ejemplo práctico: programar un script de procesamiento</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href=""></a><span class="co"># Editamos crontab</span></span>
+<span id="cb18-2"><a href=""></a><span class="fu">crontab</span> <span class="at">-e</span></span>
+<span id="cb18-3"><a href=""></a></span>
+<span id="cb18-4"><a href=""></a><span class="co"># Agregamos una línea para ejecutar procesamiento diario a las 6 AM</span></span>
+<span id="cb18-5"><a href=""></a></span>
+<span id="cb18-6"><a href=""></a><span class="co"># Éxitos y errores en un solo lugar</span></span>
+<span id="cb18-7"><a href=""></a><span class="ex">0</span> 6 <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> /home/usuario/scripts/procesar_datos.sh <span class="op">&gt;&gt;</span> /home/usuario/logs/procesamiento.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span></span>
+<span id="cb18-8"><a href=""></a></span>
+<span id="cb18-9"><a href=""></a><span class="co"># Errores y éxitos en lugares separados:</span></span>
+<span id="cb18-10"><a href=""></a></span>
+<span id="cb18-11"><a href=""></a><span class="ex">0</span> 6 <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> /home/usuario/scripts/procesar_datos.sh <span class="op">&gt;&gt;</span> /home/usuario/logs/procesamiento.log <span class="dv">2</span><span class="op">&gt;&gt;</span>  /home/usuario/logs/error.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<h3 id="variables-de-entorno-en-cron">Variables de entorno en cron:</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href=""></a><span class="co"># Al inicio del crontab, definir variables</span></span>
+<span id="cb19-2"><a href=""></a><span class="va">PATH</span><span class="op">=</span>/usr/local/bin:/usr/bin:/bin</span>
+<span id="cb19-3"><a href=""></a><span class="va">MAILTO</span><span class="op">=</span>admin@ine.gob.cl</span>
+<span id="cb19-4"><a href=""></a></span>
+<span id="cb19-5"><a href=""></a><span class="co"># Luego las tareas programadas</span></span>
+<span id="cb19-6"><a href=""></a><span class="ex">0</span> 6 <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> /home/usuario/scripts/procesar_datos.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p><strong>¡Programemos nuestras primeras tareas con cron!</strong></p>
+</div>
+</section>
+<section id="monitoreo-de-uso-de-recursos" class="slide level2 medium-par">
+<h2>Monitoreo de Uso de Recursos</h2>
+<p>Es crucial monitorear los recursos del sistema para asegurar el buen funcionamiento</p>
+<div class="fragment">
+<h3 id="comandos-para-monitoreo">Comandos para monitoreo:</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href=""></a><span class="co"># CPU y memoria en tiempo real</span></span>
+<span id="cb20-2"><a href=""></a><span class="ex">top</span></span>
+<span id="cb20-3"><a href=""></a><span class="ex">htop</span>        <span class="co"># Versión mejorada de top (si está instalado)</span></span>
+<span id="cb20-4"><a href=""></a></span>
+<span id="cb20-5"><a href=""></a><span class="co"># Uso de disco</span></span>
+<span id="cb20-6"><a href=""></a><span class="fu">df</span> <span class="at">-h</span>       <span class="co"># Espacio disponible por partición</span></span>
+<span id="cb20-7"><a href=""></a><span class="fu">du</span> <span class="at">-sh</span> <span class="pp">*</span>    <span class="co"># Tamaño de directorios actuales</span></span>
+<span id="cb20-8"><a href=""></a></span>
+<span id="cb20-9"><a href=""></a><span class="co"># Memoria</span></span>
+<span id="cb20-10"><a href=""></a><span class="fu">free</span> <span class="at">-h</span>     <span class="co"># Memoria RAM disponible</span></span>
+<span id="cb20-11"><a href=""></a></span>
+<span id="cb20-12"><a href=""></a><span class="co"># Procesos específicos</span></span>
+<span id="cb20-13"><a href=""></a><span class="fu">ps</span> aux <span class="kw">|</span> <span class="fu">grep</span> python    <span class="co"># Buscar procesos de Python</span></span>
+<span id="cb20-14"><a href=""></a><span class="ex">pgrep</span> <span class="at">-f</span> <span class="st">"mi_script"</span>    <span class="co"># Buscar proceso por nombre</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<h3 id="script-para-monitoreo-automático">Script para monitoreo automático:</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href=""></a><span class="co">#!/bin/bash</span></span>
+<span id="cb21-2"><a href=""></a><span class="co"># monitoreo.sh</span></span>
+<span id="cb21-3"><a href=""></a></span>
+<span id="cb21-4"><a href=""></a><span class="bu">echo</span> <span class="st">"=== Reporte de Sistema </span><span class="va">$(</span><span class="fu">date</span><span class="va">)</span><span class="st"> ==="</span> <span class="op">&gt;&gt;</span> /var/log/sistema.log</span>
+<span id="cb21-5"><a href=""></a><span class="bu">echo</span> <span class="st">"CPU y Memoria:"</span> <span class="op">&gt;&gt;</span> /var/log/sistema.log</span>
+<span id="cb21-6"><a href=""></a><span class="ex">top</span> <span class="at">-bn1</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-5</span> <span class="op">&gt;&gt;</span> /var/log/sistema.log</span>
+<span id="cb21-7"><a href=""></a><span class="bu">echo</span> <span class="st">"Espacio en disco:"</span> <span class="op">&gt;&gt;</span> /var/log/sistema.log</span>
+<span id="cb21-8"><a href=""></a><span class="fu">df</span> <span class="at">-h</span> <span class="op">&gt;&gt;</span> /var/log/sistema.log</span>
+<span id="cb21-9"><a href=""></a><span class="bu">echo</span> <span class="st">"================================"</span> <span class="op">&gt;&gt;</span> /var/log/sistema.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="automatización-de-reportes" class="slide level2 medium-par">
+<h2>Automatización de Reportes</h2>
+<p>Combinemos todo lo aprendido para automatizar la generación de reportes</p>
+<div class="fragment">
+<h3 id="script-completo-de-automatización">Script completo de automatización:</h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href=""></a><span class="co">#!/bin/bash</span></span>
+<span id="cb22-2"><a href=""></a><span class="co"># generar_reporte.sh</span></span>
+<span id="cb22-3"><a href=""></a></span>
+<span id="cb22-4"><a href=""></a><span class="co"># Variables</span></span>
+<span id="cb22-5"><a href=""></a><span class="va">FECHA</span><span class="op">=</span><span class="va">$(</span><span class="fu">date</span> +<span class="st">"%Y-%m-%d"</span><span class="va">)</span></span>
+<span id="cb22-6"><a href=""></a><span class="va">DIRECTORIO_DATOS</span><span class="op">=</span><span class="st">"/home/usuario/datos"</span></span>
+<span id="cb22-7"><a href=""></a><span class="va">DIRECTORIO_REPORTES</span><span class="op">=</span><span class="st">"/home/usuario/reportes"</span></span>
+<span id="cb22-8"><a href=""></a><span class="va">ARCHIVO_LOG</span><span class="op">=</span><span class="st">"/home/usuario/logs/reportes.log"</span></span>
+<span id="cb22-9"><a href=""></a></span>
+<span id="cb22-10"><a href=""></a><span class="co"># Función para logging</span></span>
+<span id="cb22-11"><a href=""></a><span class="fu">log_mensaje()</span> <span class="kw">{</span></span>
+<span id="cb22-12"><a href=""></a>    <span class="bu">echo</span> <span class="st">"</span><span class="va">$(</span><span class="fu">date</span> <span class="st">'+%Y-%m-%d %H:%M:%S'</span><span class="va">)</span><span class="st"> - </span><span class="va">$1</span><span class="st">"</span> <span class="op">&gt;&gt;</span> <span class="va">$ARCHIVO_LOG</span></span>
+<span id="cb22-13"><a href=""></a><span class="kw">}</span></span>
+<span id="cb22-14"><a href=""></a></span>
+<span id="cb22-15"><a href=""></a><span class="co"># Inicio del proceso</span></span>
+<span id="cb22-16"><a href=""></a><span class="ex">log_mensaje</span> <span class="st">"Iniciando generación de reporte"</span></span>
+<span id="cb22-17"><a href=""></a></span>
+<span id="cb22-18"><a href=""></a><span class="co"># Verificar que existe el directorio de datos</span></span>
+<span id="cb22-19"><a href=""></a><span class="cf">if</span> <span class="bu">[</span> <span class="ot">!</span> <span class="ot">-d</span> <span class="st">"</span><span class="va">$DIRECTORIO_DATOS</span><span class="st">"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb22-20"><a href=""></a>    <span class="ex">log_mensaje</span> <span class="st">"ERROR: Directorio de datos no existe"</span></span>
+<span id="cb22-21"><a href=""></a>    <span class="bu">exit</span> 1</span>
+<span id="cb22-22"><a href=""></a><span class="cf">fi</span></span>
+<span id="cb22-23"><a href=""></a></span>
+<span id="cb22-24"><a href=""></a><span class="co"># Crear directorio de reportes si no existe</span></span>
+<span id="cb22-25"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">$DIRECTORIO_REPORTES</span><span class="st">"</span></span>
+<span id="cb22-26"><a href=""></a></span>
+<span id="cb22-27"><a href=""></a><span class="co"># Procesar datos (ejemplo con R)</span></span>
+<span id="cb22-28"><a href=""></a><span class="ex">Rscript</span> /home/usuario/scripts/procesar_datos.R <span class="st">"</span><span class="va">$DIRECTORIO_DATOS</span><span class="st">"</span> <span class="st">"</span><span class="va">$DIRECTORIO_REPORTES</span><span class="st">/reporte_</span><span class="va">$FECHA</span><span class="st">.html"</span></span>
+<span id="cb22-29"><a href=""></a></span>
+<span id="cb22-30"><a href=""></a><span class="co"># Verificar si el reporte se generó correctamente</span></span>
+<span id="cb22-31"><a href=""></a><span class="cf">if</span> <span class="bu">[</span> <span class="va">$?</span> <span class="ot">-eq</span> 0 <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb22-32"><a href=""></a>    <span class="ex">log_mensaje</span> <span class="st">"Reporte generado exitosamente: reporte_</span><span class="va">$FECHA</span><span class="st">.html"</span></span>
+<span id="cb22-33"><a href=""></a><span class="cf">else</span></span>
+<span id="cb22-34"><a href=""></a>    <span class="ex">log_mensaje</span> <span class="st">"ERROR: Falló la generación del reporte"</span></span>
+<span id="cb22-35"><a href=""></a>    <span class="bu">exit</span> 1</span>
+<span id="cb22-36"><a href=""></a><span class="cf">fi</span></span>
+<span id="cb22-37"><a href=""></a></span>
+<span id="cb22-38"><a href=""></a></span>
+<span id="cb22-39"><a href=""></a><span class="co"># Limpiar archivos temporales de más de 7 días</span></span>
+<span id="cb22-40"><a href=""></a><span class="fu">find</span> /tmp <span class="at">-name</span> <span class="st">"temp_*"</span> <span class="at">-mtime</span> +7 <span class="at">-delete</span></span>
+<span id="cb22-41"><a href=""></a><span class="ex">log_mensaje</span> <span class="st">"Archivos temporales antiguos eliminados"</span></span>
+<span id="cb22-42"><a href=""></a></span>
+<span id="cb22-43"><a href=""></a><span class="co"># Comprimir reportes antiguos (más de 30 días)</span></span>
+<span id="cb22-44"><a href=""></a><span class="fu">find</span> <span class="st">"</span><span class="va">$DIRECTORIO_REPORTES</span><span class="st">"</span> <span class="at">-name</span> <span class="st">"*.html"</span> <span class="at">-mtime</span> +30 <span class="at">-exec</span> gzip {} <span class="dt">\;</span></span>
+<span id="cb22-45"><a href=""></a><span class="ex">log_mensaje</span> <span class="st">"Reportes antiguos comprimidos"</span></span>
+<span id="cb22-46"><a href=""></a></span>
+<span id="cb22-47"><a href=""></a><span class="co"># Enviar notificación por email (si está configurado)</span></span>
+<span id="cb22-48"><a href=""></a><span class="cf">if</span> <span class="bu">command</span> <span class="at">-v</span> mail <span class="op">&amp;&gt;</span> /dev/null<span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb22-49"><a href=""></a>    <span class="bu">echo</span> <span class="st">"Reporte diario generado: reporte_</span><span class="va">$FECHA</span><span class="st">.html"</span> <span class="kw">|</span> <span class="ex">mail</span> <span class="at">-s</span> <span class="st">"Reporte Diario"</span> admin@ine.gob.cl</span>
+<span id="cb22-50"><a href=""></a>    <span class="ex">log_mensaje</span> <span class="st">"Notificación enviada por email"</span></span>
+<span id="cb22-51"><a href=""></a><span class="cf">fi</span></span>
+<span id="cb22-52"><a href=""></a></span>
+<span id="cb22-53"><a href=""></a><span class="ex">log_mensaje</span> <span class="st">"Proceso completado exitosamente"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="automatización-de-reportes-1" class="slide level2 medium-par">
+<h2>Automatización de Reportes</h2>
+<h3 id="programar-en-cron">Programar en cron:</h3>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href=""></a><span class="co"># Ejecutar reporte diario a las 7 AM</span></span>
+<span id="cb23-2"><a href=""></a><span class="ex">0</span> 7 <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> /home/usuario/scripts/generar_reporte.sh</span>
+<span id="cb23-3"><a href=""></a></span>
+<span id="cb23-4"><a href=""></a><span class="co"># Monitoreo cada 30 minutos durante horario laboral</span></span>
+<span id="cb23-5"><a href=""></a><span class="ex">*/30</span> 9-18 <span class="pp">*</span> <span class="pp">*</span> 1-5 /home/usuario/scripts/monitoreo.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="logging-y-manejo-de-errores" class="slide level2 medium-par">
+<h2>Logging y Manejo de Errores</h2>
+<p>Es fundamental tener un buen sistema de logging para depurar problemas</p>
+<div class="fragment">
+<h3 id="estructura-básica-de-logging">Estructura básica de logging:</h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href=""></a><span class="co">#!/bin/bash</span></span>
+<span id="cb24-2"><a href=""></a><span class="co"># Script con logging robusto</span></span>
+<span id="cb24-3"><a href=""></a></span>
+<span id="cb24-4"><a href=""></a><span class="va">SCRIPT_NAME</span><span class="op">=</span><span class="va">$(</span><span class="fu">basename</span> <span class="st">"</span><span class="va">$0</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb24-5"><a href=""></a><span class="va">LOG_FILE</span><span class="op">=</span><span class="st">"/var/log/</span><span class="va">$SCRIPT_NAME</span><span class="st">.log"</span></span>
+<span id="cb24-6"><a href=""></a></span>
+<span id="cb24-7"><a href=""></a><span class="co"># Función de logging</span></span>
+<span id="cb24-8"><a href=""></a><span class="fu">log()</span> <span class="kw">{</span></span>
+<span id="cb24-9"><a href=""></a>    <span class="bu">local</span> <span class="va">nivel</span><span class="op">=</span><span class="va">$1</span></span>
+<span id="cb24-10"><a href=""></a>    <span class="bu">shift</span></span>
+<span id="cb24-11"><a href=""></a>    <span class="bu">echo</span> <span class="st">"</span><span class="va">$(</span><span class="fu">date</span> <span class="st">'+%Y-%m-%d %H:%M:%S'</span><span class="va">)</span><span class="st"> [</span><span class="va">$nivel</span><span class="st">] </span><span class="va">$SCRIPT_NAME</span><span class="st">: </span><span class="va">$*</span><span class="st">"</span> <span class="op">&gt;&gt;</span> <span class="va">$LOG_FILE</span></span>
+<span id="cb24-12"><a href=""></a><span class="kw">}</span></span>
+<span id="cb24-13"><a href=""></a></span>
+<span id="cb24-14"><a href=""></a><span class="co"># Capturar errores automáticamente</span></span>
+<span id="cb24-15"><a href=""></a><span class="bu">set</span> <span class="at">-e</span>  <span class="co"># Salir si cualquier comando falla</span></span>
+<span id="cb24-16"><a href=""></a><span class="bu">trap</span> <span class="st">'log ERROR "Script falló en línea $LINENO"'</span> ERR</span>
+<span id="cb24-17"><a href=""></a></span>
+<span id="cb24-18"><a href=""></a><span class="co"># Uso del logging</span></span>
+<span id="cb24-19"><a href=""></a><span class="ex">log</span> INFO <span class="st">"Iniciando proceso"</span></span>
+<span id="cb24-20"><a href=""></a></span>
+<span id="cb24-21"><a href=""></a><span class="co"># Ejemplo de verificación con logging</span></span>
+<span id="cb24-22"><a href=""></a><span class="cf">if</span> <span class="bu">[</span> <span class="ot">!</span> <span class="ot">-f</span> <span class="st">"archivo_requerido.txt"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb24-23"><a href=""></a>    <span class="ex">log</span> ERROR <span class="st">"Archivo requerido no encontrado"</span></span>
+<span id="cb24-24"><a href=""></a>    <span class="bu">exit</span> 1</span>
+<span id="cb24-25"><a href=""></a><span class="cf">fi</span></span>
+<span id="cb24-26"><a href=""></a></span>
+<span id="cb24-27"><a href=""></a><span class="ex">log</span> INFO <span class="st">"Archivo encontrado, continuando..."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="buenas-prácticas" class="slide level2 medium-par">
+<h2>Buenas Prácticas</h2>
+<h3 id="para-scripts-bash">Para scripts bash:</h3>
+<ul>
+<li class="fragment">Usar rutas absolutas en cron (no asume variables de entorno)</li>
+<li class="fragment">Validar que existen archivos y directorios antes de usarlos</li>
+<li class="fragment">Usar logging consistente</li>
+<li class="fragment">Establecer timeouts para comandos que pueden colgarse</li>
+<li class="fragment">Usar variables para valores que pueden cambiar</li>
+<li class="fragment">Comentar el código adecuadamente</li>
+</ul>
+<div class="fragment">
+<h3 id="para-cron">Para cron:</h3>
+<ul>
+<li class="fragment">Redirigir siempre la salida a archivos de log</li>
+<li class="fragment">Usar rutas absolutas para todos los comandos y archivos</li>
+<li class="fragment">Establecer variables de entorno necesarias en el crontab</li>
+<li class="fragment">Probar scripts manualmente antes de programarlos</li>
+<li class="fragment">Monitorear los logs regularmente</li>
+</ul>
+</div>
+<div class="fragment">
+<h3 id="para-monitoreo">Para monitoreo:</h3>
+<ul>
+<li class="fragment">Establecer alertas para recursos críticos</li>
+<li class="fragment">Mantener históricos de uso de recursos</li>
+<li class="fragment">Automatizar la limpieza de logs antiguos</li>
+</ul>
+</div>
+</section>
+<section id="ejemplo-práctico-completo" class="slide level2 medium-par scrollable">
+<h2>Ejemplo Práctico Completo</h2>
+<p>Vamos a crear un sistema completo de automatización:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href=""></a><span class="co"># Estructura de archivos</span></span>
+<span id="cb25-2"><a href=""></a><span class="ex">/home/usuario/</span></span>
+<span id="cb25-3"><a href=""></a><span class="ex">├──</span> scripts/</span>
+<span id="cb25-4"><a href=""></a><span class="ex">│</span>   ├── procesar_datos.sh</span>
+<span id="cb25-5"><a href=""></a><span class="ex">│</span>   ├── monitoreo.sh</span>
+<span id="cb25-6"><a href=""></a><span class="ex">│</span>   └── limpiar_sistema.sh</span>
+<span id="cb25-7"><a href=""></a><span class="ex">├──</span> logs/</span>
+<span id="cb25-8"><a href=""></a><span class="ex">├──</span> datos/</span>
+<span id="cb25-9"><a href=""></a><span class="ex">└──</span> reportes/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<p><strong>¡Implementemos un ejemplo completo paso a paso!</strong></p>
+<ol type="1">
+<li>Crear la estructura de directorios</li>
+<li>Escribir scripts de procesamiento</li>
+<li>Configurar monitoreo</li>
+<li>Programar tareas en cron</li>
+<li>Probar el sistema completo</li>
+</ol>
+</div>
+</section>
+<section id="torpedo-de-comandos" class="slide level2">
+<h2>Torpedo de Comandos</h2>
+<div class="columns">
+<div class="column" style="width:&quot;50%;">
+<p><strong>Navegación:</strong></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href=""></a><span class="bu">pwd</span>, ls <span class="at">-la,</span> cd, mkdir, cp, mv, rm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Visualización:</strong></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href=""></a><span class="fu">cat</span>, head, tail <span class="at">-f,</span> grep, wc <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Sistema:</strong></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href=""></a><span class="fu">ps</span> aux, top, df <span class="at">-h,</span> free <span class="at">-h</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Cron:</strong></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href=""></a><span class="fu">crontab</span> <span class="at">-l</span>    <span class="co"># listar tareas</span></span>
+<span id="cb29-2"><a href=""></a><span class="fu">crontab</span> <span class="at">-e</span>    <span class="co"># editar tareas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Permisos:</strong></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href=""></a><span class="fu">chmod</span> +x script.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Redirecciones:</strong></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href=""></a><span class="ex">comando</span> <span class="op">&gt;</span> archivo</span>
+<span id="cb31-2"><a href=""></a><span class="ex">comando</span> <span class="op">&gt;&gt;</span> archivo</span>
+<span id="cb31-3"><a href=""></a><span class="ex">comando</span> <span class="dv">2</span><span class="op">&gt;</span> errores.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="material-de-consulta" class="slide level2">
+<h2>Material de Consulta</h2>
+<p><a href="https://linuxconfig.org/bash-scripting-tutorial">Bash Scripting Tutorial</a></p>
+<p><a href="https://crontab.guru/">Cron y Crontab Guide</a></p>
+<p><a href="https://ubuntu.com/tutorials/command-line-for-beginners">Linux Command Line Basics</a></p>
+<p><a href="https://tldp.org/LDP/abs/html/">Advanced Bash-Scripting Guide</a></p>
+</section></section>
+<section id="section-1" class="title-slide slide level1 center">
+<h1></h1>
+<p><span class="center-justified"><img src="imagenes/logo_portada2.png" width="40%"></span></p>
+<p><span class="big-par center-justified"><strong>Automatización de Procesos con Bash y Linux</strong></span></p>
+<p><span class="big-par center-justified"><strong>Unidad de Gobierno de Datos</strong></span></p>
+<p><span class="big-par center-justified"><strong>Julio 2025</strong></span></p>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="imagenes/logo_portada2.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>Unidad de Gobiernos de Datos</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="automatizacion-2_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="automatizacion-2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="automatizacion-2_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="automatizacion-2_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="automatizacion-2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="automatizacion-2_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="automatizacion-2_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="automatizacion-2_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="automatizacion-2_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="automatizacion-2_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1300,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0,
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
