@@ -220,7 +220,7 @@ uptime              # Tiempo de funcionamiento del sistema
 :::
 
 ::: fragment
-**¡Probemos estos comandos básicos!**
+**Probemos en vivo estos comandos!**
 :::
 ---
 
@@ -320,7 +320,7 @@ chgrp grupo archivo           # Solo cambiar grupo
 :::
 
 ::: fragment
-**Tener una noción de cómo funcionan los permisos es esencial para la seguridad y funcionamiento de scripts!**
+**Tener una noción de cómo funcionan los permisos es esencial para la seguridad y funcionamiento de scripts**
 :::
 
 ---
@@ -643,127 +643,127 @@ echo "================================" >> /var/log/sistema.log
 ```
 :::
 
----
+<!-- --- -->
 
-## Automatización de Reportes {.medium-par}
+<!-- ## Automatización de Reportes {.medium-par} -->
 
-Combinemos todo lo aprendido para automatizar la generación de reportes
+<!-- Combinemos todo lo aprendido para automatizar la generación de reportes -->
 
-. . .
+<!-- . . . -->
 
-### Script completo de automatización:
+<!-- ### Script completo de automatización: -->
 
-```bash
-#!/bin/bash
-# generar_reporte.sh
+<!-- ```bash -->
+<!-- #!/bin/bash -->
+<!-- # generar_reporte.sh -->
 
-# Variables
-FECHA=$(date +"%Y-%m-%d")
-DIRECTORIO_DATOS="/home/usuario/datos"
-DIRECTORIO_REPORTES="/home/usuario/reportes"
-ARCHIVO_LOG="/home/usuario/logs/reportes.log"
+<!-- # Variables -->
+<!-- FECHA=$(date +"%Y-%m-%d") -->
+<!-- DIRECTORIO_DATOS="/home/usuario/datos" -->
+<!-- DIRECTORIO_REPORTES="/home/usuario/reportes" -->
+<!-- ARCHIVO_LOG="/home/usuario/logs/reportes.log" -->
 
-# Función para logging
-log_mensaje() {
-    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> $ARCHIVO_LOG
-}
+<!-- # Función para logging -->
+<!-- log_mensaje() { -->
+<!--     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> $ARCHIVO_LOG -->
+<!-- } -->
 
-# Inicio del proceso
-log_mensaje "Iniciando generación de reporte"
+<!-- # Inicio del proceso -->
+<!-- log_mensaje "Iniciando generación de reporte" -->
 
-# Verificar que existe el directorio de datos
-if [ ! -d "$DIRECTORIO_DATOS" ]; then
-    log_mensaje "ERROR: Directorio de datos no existe"
-    exit 1
-fi
+<!-- # Verificar que existe el directorio de datos -->
+<!-- if [ ! -d "$DIRECTORIO_DATOS" ]; then -->
+<!--     log_mensaje "ERROR: Directorio de datos no existe" -->
+<!--     exit 1 -->
+<!-- fi -->
 
-# Crear directorio de reportes si no existe
-mkdir -p "$DIRECTORIO_REPORTES"
+<!-- # Crear directorio de reportes si no existe -->
+<!-- mkdir -p "$DIRECTORIO_REPORTES" -->
 
-# Procesar datos (ejemplo con R)
-Rscript /home/usuario/scripts/procesar_datos.R "$DIRECTORIO_DATOS" "$DIRECTORIO_REPORTES/reporte_$FECHA.html"
+<!-- # Procesar datos (ejemplo con R) -->
+<!-- Rscript /home/usuario/scripts/procesar_datos.R "$DIRECTORIO_DATOS" "$DIRECTORIO_REPORTES/reporte_$FECHA.html" -->
 
-# Verificar si el reporte se generó correctamente
-if [ $? -eq 0 ]; then
-    log_mensaje "Reporte generado exitosamente: reporte_$FECHA.html"
-else
-    log_mensaje "ERROR: Falló la generación del reporte"
-    exit 1
-fi
-
-
-# Limpiar archivos temporales de más de 7 días
-find /tmp -name "temp_*" -mtime +7 -delete
-log_mensaje "Archivos temporales antiguos eliminados"
-
-# Comprimir reportes antiguos (más de 30 días)
-find "$DIRECTORIO_REPORTES" -name "*.html" -mtime +30 -exec gzip {} \;
-log_mensaje "Reportes antiguos comprimidos"
-
-# Enviar notificación por email (si está configurado)
-if command -v mail &> /dev/null; then
-    echo "Reporte diario generado: reporte_$FECHA.html" | mail -s "Reporte Diario" admin@ine.gob.cl
-    log_mensaje "Notificación enviada por email"
-fi
-
-log_mensaje "Proceso completado exitosamente"
-
-```
-
----
-
-## Automatización de Reportes {.medium-par}
+<!-- # Verificar si el reporte se generó correctamente -->
+<!-- if [ $? -eq 0 ]; then -->
+<!--     log_mensaje "Reporte generado exitosamente: reporte_$FECHA.html" -->
+<!-- else -->
+<!--     log_mensaje "ERROR: Falló la generación del reporte" -->
+<!--     exit 1 -->
+<!-- fi -->
 
 
-### Programar en cron:
+<!-- # Limpiar archivos temporales de más de 7 días -->
+<!-- find /tmp -name "temp_*" -mtime +7 -delete -->
+<!-- log_mensaje "Archivos temporales antiguos eliminados" -->
 
-```bash
-# Ejecutar reporte diario a las 7 AM
-0 7 * * * /home/usuario/scripts/generar_reporte.sh
+<!-- # Comprimir reportes antiguos (más de 30 días) -->
+<!-- find "$DIRECTORIO_REPORTES" -name "*.html" -mtime +30 -exec gzip {} \; -->
+<!-- log_mensaje "Reportes antiguos comprimidos" -->
 
-# Monitoreo cada 30 minutos durante horario laboral
-*/30 9-18 * * 1-5 /home/usuario/scripts/monitoreo.sh
-```
+<!-- # Enviar notificación por email (si está configurado) -->
+<!-- if command -v mail &> /dev/null; then -->
+<!--     echo "Reporte diario generado: reporte_$FECHA.html" | mail -s "Reporte Diario" admin@ine.gob.cl -->
+<!--     log_mensaje "Notificación enviada por email" -->
+<!-- fi -->
 
----
+<!-- log_mensaje "Proceso completado exitosamente" -->
 
-## Logging y Manejo de Errores {.medium-par}
+<!-- ``` -->
 
-Es fundamental tener un buen sistema de logging para depurar problemas
+<!-- --- -->
 
-. . .
+<!-- ## Automatización de Reportes {.medium-par} -->
 
-### Estructura básica de logging:
 
-```bash
-#!/bin/bash
-# Script con logging robusto
+<!-- ### Programar en cron: -->
 
-SCRIPT_NAME=$(basename "$0")
-LOG_FILE="/var/log/$SCRIPT_NAME.log"
+<!-- ```bash -->
+<!-- # Ejecutar reporte diario a las 7 AM -->
+<!-- 0 7 * * * /home/usuario/scripts/generar_reporte.sh -->
 
-# Función de logging
-log() {
-    local nivel=$1
-    shift
-    echo "$(date '+%Y-%m-%d %H:%M:%S') [$nivel] $SCRIPT_NAME: $*" >> $LOG_FILE
-}
+<!-- # Monitoreo cada 30 minutos durante horario laboral -->
+<!-- */30 9-18 * * 1-5 /home/usuario/scripts/monitoreo.sh -->
+<!-- ``` -->
 
-# Capturar errores automáticamente
-set -e  # Salir si cualquier comando falla
-trap 'log ERROR "Script falló en línea $LINENO"' ERR
+<!-- --- -->
 
-# Uso del logging
-log INFO "Iniciando proceso"
+<!-- ## Logging y Manejo de Errores {.medium-par} -->
 
-# Ejemplo de verificación con logging
-if [ ! -f "archivo_requerido.txt" ]; then
-    log ERROR "Archivo requerido no encontrado"
-    exit 1
-fi
+<!-- Es fundamental tener un buen sistema de logging para depurar problemas -->
 
-log INFO "Archivo encontrado, continuando..."
-```
+<!-- . . . -->
+
+<!-- ### Estructura básica de logging: -->
+
+<!-- ```bash -->
+<!-- #!/bin/bash -->
+<!-- # Script con logging robusto -->
+
+<!-- SCRIPT_NAME=$(basename "$0") -->
+<!-- LOG_FILE="/var/log/$SCRIPT_NAME.log" -->
+
+<!-- # Función de logging -->
+<!-- log() { -->
+<!--     local nivel=$1 -->
+<!--     shift -->
+<!--     echo "$(date '+%Y-%m-%d %H:%M:%S') [$nivel] $SCRIPT_NAME: $*" >> $LOG_FILE -->
+<!-- } -->
+
+<!-- # Capturar errores automáticamente -->
+<!-- set -e  # Salir si cualquier comando falla -->
+<!-- trap 'log ERROR "Script falló en línea $LINENO"' ERR -->
+
+<!-- # Uso del logging -->
+<!-- log INFO "Iniciando proceso" -->
+
+<!-- # Ejemplo de verificación con logging -->
+<!-- if [ ! -f "archivo_requerido.txt" ]; then -->
+<!--     log ERROR "Archivo requerido no encontrado" -->
+<!--     exit 1 -->
+<!-- fi -->
+
+<!-- log INFO "Archivo encontrado, continuando..." -->
+<!-- ``` -->
 
 ---
 
@@ -795,45 +795,60 @@ log INFO "Archivo encontrado, continuando..."
 :::
 
 
-::: fragment
+<!-- ::: fragment -->
 
-### Para monitoreo:
+<!-- ### Para monitoreo: -->
 
-::: {.incremental}
-- Establecer alertas para recursos críticos
-- Mantener históricos de uso de recursos
-- Automatizar la limpieza de logs antiguos
-:::
+<!-- ::: {.incremental} -->
+<!-- - Establecer alertas para recursos críticos -->
+<!-- - Mantener históricos de uso de recursos -->
+<!-- - Automatizar la limpieza de logs antiguos -->
+<!-- ::: -->
 
-:::
+<!-- ::: -->
+
+<!-- --- -->
+
+<!-- ## Ejemplo Práctico Completo {.medium-par} -->
+
+<!-- Vamos a crear un sistema completo de automatización: -->
+
+<!-- ```bash -->
+<!-- # Estructura de archivos -->
+<!-- /home/usuario/ -->
+<!-- ├── scripts/ -->
+<!-- │   ├── procesar_datos.sh -->
+<!-- │   ├── monitoreo.sh -->
+<!-- │   └── limpiar_sistema.sh -->
+<!-- ├── logs/ -->
+<!-- ├── datos/ -->
+<!-- └── reportes/ -->
+<!-- ``` -->
+
+<!-- . . . -->
+
+<!-- **¡Implementemos un ejemplo completo paso a paso!** -->
+
+<!-- 1. Crear la estructura de directorios -->
+<!-- 2. Escribir scripts de procesamiento -->
+<!-- 3. Configurar monitoreo -->
+<!-- 4. Programar tareas en cron -->
+<!-- 5. Probar el sistema completo -->
 
 ---
 
-## Ejemplo Práctico Completo {.medium-par}
+## Resumiendo
 
-Vamos a crear un sistema completo de automatización:
-
-```bash
-# Estructura de archivos
-/home/usuario/
-├── scripts/
-│   ├── procesar_datos.sh
-│   ├── monitoreo.sh
-│   └── limpiar_sistema.sh
-├── logs/
-├── datos/
-└── reportes/
-```
-
-. . .
-
-**¡Implementemos un ejemplo completo paso a paso!**
-
-1. Crear la estructura de directorios
-2. Escribir scripts de procesamiento
-3. Configurar monitoreo
-4. Programar tareas en cron
-5. Probar el sistema completo
+::: incremental
+- Linux es el sistema operativo que usualmente utilizaremos cuando gestionamos servidores.
+- Necesitamos aprender a utilizar la consola, al menos, a un nivel básico para poder interactuar
+  con él.
+- Con bash scripts podemos juntar varias instrucciones a la consola en un solo lugar. Además,
+tenemos acceso a opciones programáticas como asignación de variables.
+- Es necesario entregar permiso de ejecución a los scripts, caso contrario no correrán.
+- Podemos enviar salidas de comandos tanto a otros comandos (|) como a archivos (> o >>).
+- Con cron podemos correr bash scripts con la periodicidad que nos parezca adecuada
+:::
 
 ---
 

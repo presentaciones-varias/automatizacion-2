@@ -329,7 +329,7 @@
 <span id="cb4-5"><a href=""></a><span class="fu">uptime</span>              <span class="co"># Tiempo de funcionamiento del sistema</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<p><strong>¡Probemos estos comandos básicos!</strong></p>
+<p><strong>Probemos en vivo estos comandos!</strong></p>
 </div>
 </section>
 <section id="scripts-bash-básicos" class="slide level2 medium-par">
@@ -597,7 +597,7 @@
 <span id="cb19-6"><a href=""></a><span class="ex">0</span> 6 <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> /home/usuario/scripts/procesar_datos.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<p><strong>¡Programemos nuestras primeras tareas con cron!</strong></p>
+<p><strong>Veamos en la consola cómo funciona en la práctica!</strong></p>
 </div>
 </section>
 <section id="monitoreo-de-uso-de-recursos" class="slide level2 medium-par">
@@ -631,109 +631,91 @@
 <span id="cb21-8"><a href=""></a><span class="fu">df</span> <span class="at">-h</span> <span class="op">&gt;&gt;</span> /var/log/sistema.log</span>
 <span id="cb21-9"><a href=""></a><span class="bu">echo</span> <span class="st">"================================"</span> <span class="op">&gt;&gt;</span> /var/log/sistema.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section>
-<section id="automatización-de-reportes" class="slide level2 medium-par">
-<h2>Automatización de Reportes</h2>
-<p>Combinemos todo lo aprendido para automatizar la generación de reportes</p>
-<div class="fragment">
-<h3 id="script-completo-de-automatización">Script completo de automatización:</h3>
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href=""></a><span class="co">#!/bin/bash</span></span>
-<span id="cb22-2"><a href=""></a><span class="co"># generar_reporte.sh</span></span>
-<span id="cb22-3"><a href=""></a></span>
-<span id="cb22-4"><a href=""></a><span class="co"># Variables</span></span>
-<span id="cb22-5"><a href=""></a><span class="va">FECHA</span><span class="op">=</span><span class="va">$(</span><span class="fu">date</span> +<span class="st">"%Y-%m-%d"</span><span class="va">)</span></span>
-<span id="cb22-6"><a href=""></a><span class="va">DIRECTORIO_DATOS</span><span class="op">=</span><span class="st">"/home/usuario/datos"</span></span>
-<span id="cb22-7"><a href=""></a><span class="va">DIRECTORIO_REPORTES</span><span class="op">=</span><span class="st">"/home/usuario/reportes"</span></span>
-<span id="cb22-8"><a href=""></a><span class="va">ARCHIVO_LOG</span><span class="op">=</span><span class="st">"/home/usuario/logs/reportes.log"</span></span>
-<span id="cb22-9"><a href=""></a></span>
-<span id="cb22-10"><a href=""></a><span class="co"># Función para logging</span></span>
-<span id="cb22-11"><a href=""></a><span class="fu">log_mensaje()</span> <span class="kw">{</span></span>
-<span id="cb22-12"><a href=""></a>    <span class="bu">echo</span> <span class="st">"</span><span class="va">$(</span><span class="fu">date</span> <span class="st">'+%Y-%m-%d %H:%M:%S'</span><span class="va">)</span><span class="st"> - </span><span class="va">$1</span><span class="st">"</span> <span class="op">&gt;&gt;</span> <span class="va">$ARCHIVO_LOG</span></span>
-<span id="cb22-13"><a href=""></a><span class="kw">}</span></span>
-<span id="cb22-14"><a href=""></a></span>
-<span id="cb22-15"><a href=""></a><span class="co"># Inicio del proceso</span></span>
-<span id="cb22-16"><a href=""></a><span class="ex">log_mensaje</span> <span class="st">"Iniciando generación de reporte"</span></span>
-<span id="cb22-17"><a href=""></a></span>
-<span id="cb22-18"><a href=""></a><span class="co"># Verificar que existe el directorio de datos</span></span>
-<span id="cb22-19"><a href=""></a><span class="cf">if</span> <span class="bu">[</span> <span class="ot">!</span> <span class="ot">-d</span> <span class="st">"</span><span class="va">$DIRECTORIO_DATOS</span><span class="st">"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb22-20"><a href=""></a>    <span class="ex">log_mensaje</span> <span class="st">"ERROR: Directorio de datos no existe"</span></span>
-<span id="cb22-21"><a href=""></a>    <span class="bu">exit</span> 1</span>
-<span id="cb22-22"><a href=""></a><span class="cf">fi</span></span>
-<span id="cb22-23"><a href=""></a></span>
-<span id="cb22-24"><a href=""></a><span class="co"># Crear directorio de reportes si no existe</span></span>
-<span id="cb22-25"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">$DIRECTORIO_REPORTES</span><span class="st">"</span></span>
-<span id="cb22-26"><a href=""></a></span>
-<span id="cb22-27"><a href=""></a><span class="co"># Procesar datos (ejemplo con R)</span></span>
-<span id="cb22-28"><a href=""></a><span class="ex">Rscript</span> /home/usuario/scripts/procesar_datos.R <span class="st">"</span><span class="va">$DIRECTORIO_DATOS</span><span class="st">"</span> <span class="st">"</span><span class="va">$DIRECTORIO_REPORTES</span><span class="st">/reporte_</span><span class="va">$FECHA</span><span class="st">.html"</span></span>
-<span id="cb22-29"><a href=""></a></span>
-<span id="cb22-30"><a href=""></a><span class="co"># Verificar si el reporte se generó correctamente</span></span>
-<span id="cb22-31"><a href=""></a><span class="cf">if</span> <span class="bu">[</span> <span class="va">$?</span> <span class="ot">-eq</span> 0 <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb22-32"><a href=""></a>    <span class="ex">log_mensaje</span> <span class="st">"Reporte generado exitosamente: reporte_</span><span class="va">$FECHA</span><span class="st">.html"</span></span>
-<span id="cb22-33"><a href=""></a><span class="cf">else</span></span>
-<span id="cb22-34"><a href=""></a>    <span class="ex">log_mensaje</span> <span class="st">"ERROR: Falló la generación del reporte"</span></span>
-<span id="cb22-35"><a href=""></a>    <span class="bu">exit</span> 1</span>
-<span id="cb22-36"><a href=""></a><span class="cf">fi</span></span>
-<span id="cb22-37"><a href=""></a></span>
-<span id="cb22-38"><a href=""></a></span>
-<span id="cb22-39"><a href=""></a><span class="co"># Limpiar archivos temporales de más de 7 días</span></span>
-<span id="cb22-40"><a href=""></a><span class="fu">find</span> /tmp <span class="at">-name</span> <span class="st">"temp_*"</span> <span class="at">-mtime</span> +7 <span class="at">-delete</span></span>
-<span id="cb22-41"><a href=""></a><span class="ex">log_mensaje</span> <span class="st">"Archivos temporales antiguos eliminados"</span></span>
-<span id="cb22-42"><a href=""></a></span>
-<span id="cb22-43"><a href=""></a><span class="co"># Comprimir reportes antiguos (más de 30 días)</span></span>
-<span id="cb22-44"><a href=""></a><span class="fu">find</span> <span class="st">"</span><span class="va">$DIRECTORIO_REPORTES</span><span class="st">"</span> <span class="at">-name</span> <span class="st">"*.html"</span> <span class="at">-mtime</span> +30 <span class="at">-exec</span> gzip {} <span class="dt">\;</span></span>
-<span id="cb22-45"><a href=""></a><span class="ex">log_mensaje</span> <span class="st">"Reportes antiguos comprimidos"</span></span>
-<span id="cb22-46"><a href=""></a></span>
-<span id="cb22-47"><a href=""></a><span class="co"># Enviar notificación por email (si está configurado)</span></span>
-<span id="cb22-48"><a href=""></a><span class="cf">if</span> <span class="bu">command</span> <span class="at">-v</span> mail <span class="op">&amp;&gt;</span> /dev/null<span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb22-49"><a href=""></a>    <span class="bu">echo</span> <span class="st">"Reporte diario generado: reporte_</span><span class="va">$FECHA</span><span class="st">.html"</span> <span class="kw">|</span> <span class="ex">mail</span> <span class="at">-s</span> <span class="st">"Reporte Diario"</span> admin@ine.gob.cl</span>
-<span id="cb22-50"><a href=""></a>    <span class="ex">log_mensaje</span> <span class="st">"Notificación enviada por email"</span></span>
-<span id="cb22-51"><a href=""></a><span class="cf">fi</span></span>
-<span id="cb22-52"><a href=""></a></span>
-<span id="cb22-53"><a href=""></a><span class="ex">log_mensaje</span> <span class="st">"Proceso completado exitosamente"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="automatización-de-reportes-1" class="slide level2 medium-par">
-<h2>Automatización de Reportes</h2>
-<h3 id="programar-en-cron">Programar en cron:</h3>
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href=""></a><span class="co"># Ejecutar reporte diario a las 7 AM</span></span>
-<span id="cb23-2"><a href=""></a><span class="ex">0</span> 7 <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> /home/usuario/scripts/generar_reporte.sh</span>
-<span id="cb23-3"><a href=""></a></span>
-<span id="cb23-4"><a href=""></a><span class="co"># Monitoreo cada 30 minutos durante horario laboral</span></span>
-<span id="cb23-5"><a href=""></a><span class="ex">*/30</span> 9-18 <span class="pp">*</span> <span class="pp">*</span> 1-5 /home/usuario/scripts/monitoreo.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="logging-y-manejo-de-errores" class="slide level2 medium-par">
-<h2>Logging y Manejo de Errores</h2>
-<p>Es fundamental tener un buen sistema de logging para depurar problemas</p>
-<div class="fragment">
-<h3 id="estructura-básica-de-logging">Estructura básica de logging:</h3>
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href=""></a><span class="co">#!/bin/bash</span></span>
-<span id="cb24-2"><a href=""></a><span class="co"># Script con logging robusto</span></span>
-<span id="cb24-3"><a href=""></a></span>
-<span id="cb24-4"><a href=""></a><span class="va">SCRIPT_NAME</span><span class="op">=</span><span class="va">$(</span><span class="fu">basename</span> <span class="st">"</span><span class="va">$0</span><span class="st">"</span><span class="va">)</span></span>
-<span id="cb24-5"><a href=""></a><span class="va">LOG_FILE</span><span class="op">=</span><span class="st">"/var/log/</span><span class="va">$SCRIPT_NAME</span><span class="st">.log"</span></span>
-<span id="cb24-6"><a href=""></a></span>
-<span id="cb24-7"><a href=""></a><span class="co"># Función de logging</span></span>
-<span id="cb24-8"><a href=""></a><span class="fu">log()</span> <span class="kw">{</span></span>
-<span id="cb24-9"><a href=""></a>    <span class="bu">local</span> <span class="va">nivel</span><span class="op">=</span><span class="va">$1</span></span>
-<span id="cb24-10"><a href=""></a>    <span class="bu">shift</span></span>
-<span id="cb24-11"><a href=""></a>    <span class="bu">echo</span> <span class="st">"</span><span class="va">$(</span><span class="fu">date</span> <span class="st">'+%Y-%m-%d %H:%M:%S'</span><span class="va">)</span><span class="st"> [</span><span class="va">$nivel</span><span class="st">] </span><span class="va">$SCRIPT_NAME</span><span class="st">: </span><span class="va">$*</span><span class="st">"</span> <span class="op">&gt;&gt;</span> <span class="va">$LOG_FILE</span></span>
-<span id="cb24-12"><a href=""></a><span class="kw">}</span></span>
-<span id="cb24-13"><a href=""></a></span>
-<span id="cb24-14"><a href=""></a><span class="co"># Capturar errores automáticamente</span></span>
-<span id="cb24-15"><a href=""></a><span class="bu">set</span> <span class="at">-e</span>  <span class="co"># Salir si cualquier comando falla</span></span>
-<span id="cb24-16"><a href=""></a><span class="bu">trap</span> <span class="st">'log ERROR "Script falló en línea $LINENO"'</span> ERR</span>
-<span id="cb24-17"><a href=""></a></span>
-<span id="cb24-18"><a href=""></a><span class="co"># Uso del logging</span></span>
-<span id="cb24-19"><a href=""></a><span class="ex">log</span> INFO <span class="st">"Iniciando proceso"</span></span>
-<span id="cb24-20"><a href=""></a></span>
-<span id="cb24-21"><a href=""></a><span class="co"># Ejemplo de verificación con logging</span></span>
-<span id="cb24-22"><a href=""></a><span class="cf">if</span> <span class="bu">[</span> <span class="ot">!</span> <span class="ot">-f</span> <span class="st">"archivo_requerido.txt"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb24-23"><a href=""></a>    <span class="ex">log</span> ERROR <span class="st">"Archivo requerido no encontrado"</span></span>
-<span id="cb24-24"><a href=""></a>    <span class="bu">exit</span> 1</span>
-<span id="cb24-25"><a href=""></a><span class="cf">fi</span></span>
-<span id="cb24-26"><a href=""></a></span>
-<span id="cb24-27"><a href=""></a><span class="ex">log</span> INFO <span class="st">"Archivo encontrado, continuando..."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- --- -->
+<!-- ## Automatización de Reportes {.medium-par} -->
+<!-- Combinemos todo lo aprendido para automatizar la generación de reportes -->
+<!-- . . . -->
+<!-- ### Script completo de automatización: -->
+<!-- ```bash -->
+<!-- #!/bin/bash -->
+<!-- # generar_reporte.sh -->
+<!-- # Variables -->
+<!-- FECHA=$(date +"%Y-%m-%d") -->
+<!-- DIRECTORIO_DATOS="/home/usuario/datos" -->
+<!-- DIRECTORIO_REPORTES="/home/usuario/reportes" -->
+<!-- ARCHIVO_LOG="/home/usuario/logs/reportes.log" -->
+<!-- # Función para logging -->
+<!-- log_mensaje() { -->
+<!--     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> $ARCHIVO_LOG -->
+<!-- } -->
+<!-- # Inicio del proceso -->
+<!-- log_mensaje "Iniciando generación de reporte" -->
+<!-- # Verificar que existe el directorio de datos -->
+<!-- if [ ! -d "$DIRECTORIO_DATOS" ]; then -->
+<!--     log_mensaje "ERROR: Directorio de datos no existe" -->
+<!--     exit 1 -->
+<!-- fi -->
+<!-- # Crear directorio de reportes si no existe -->
+<!-- mkdir -p "$DIRECTORIO_REPORTES" -->
+<!-- # Procesar datos (ejemplo con R) -->
+<!-- Rscript /home/usuario/scripts/procesar_datos.R "$DIRECTORIO_DATOS" "$DIRECTORIO_REPORTES/reporte_$FECHA.html" -->
+<!-- # Verificar si el reporte se generó correctamente -->
+<!-- if [ $? -eq 0 ]; then -->
+<!--     log_mensaje "Reporte generado exitosamente: reporte_$FECHA.html" -->
+<!-- else -->
+<!--     log_mensaje "ERROR: Falló la generación del reporte" -->
+<!--     exit 1 -->
+<!-- fi -->
+<!-- # Limpiar archivos temporales de más de 7 días -->
+<!-- find /tmp -name "temp_*" -mtime +7 -delete -->
+<!-- log_mensaje "Archivos temporales antiguos eliminados" -->
+<!-- # Comprimir reportes antiguos (más de 30 días) -->
+<!-- find "$DIRECTORIO_REPORTES" -name "*.html" -mtime +30 -exec gzip {} \; -->
+<!-- log_mensaje "Reportes antiguos comprimidos" -->
+<!-- # Enviar notificación por email (si está configurado) -->
+<!-- if command -v mail &> /dev/null; then -->
+<!--     echo "Reporte diario generado: reporte_$FECHA.html" | mail -s "Reporte Diario" admin@ine.gob.cl -->
+<!--     log_mensaje "Notificación enviada por email" -->
+<!-- fi -->
+<!-- log_mensaje "Proceso completado exitosamente" -->
+<!-- ``` -->
+<!-- --- -->
+<!-- ## Automatización de Reportes {.medium-par} -->
+<!-- ### Programar en cron: -->
+<!-- ```bash -->
+<!-- # Ejecutar reporte diario a las 7 AM -->
+<!-- 0 7 * * * /home/usuario/scripts/generar_reporte.sh -->
+<!-- # Monitoreo cada 30 minutos durante horario laboral -->
+<!-- */30 9-18 * * 1-5 /home/usuario/scripts/monitoreo.sh -->
+<!-- ``` -->
+<!-- --- -->
+<!-- ## Logging y Manejo de Errores {.medium-par} -->
+<!-- Es fundamental tener un buen sistema de logging para depurar problemas -->
+<!-- . . . -->
+<!-- ### Estructura básica de logging: -->
+<!-- ```bash -->
+<!-- #!/bin/bash -->
+<!-- # Script con logging robusto -->
+<!-- SCRIPT_NAME=$(basename "$0") -->
+<!-- LOG_FILE="/var/log/$SCRIPT_NAME.log" -->
+<!-- # Función de logging -->
+<!-- log() { -->
+<!--     local nivel=$1 -->
+<!--     shift -->
+<!--     echo "$(date '+%Y-%m-%d %H:%M:%S') [$nivel] $SCRIPT_NAME: $*" >> $LOG_FILE -->
+<!-- } -->
+<!-- # Capturar errores automáticamente -->
+<!-- set -e  # Salir si cualquier comando falla -->
+<!-- trap 'log ERROR "Script falló en línea $LINENO"' ERR -->
+<!-- # Uso del logging -->
+<!-- log INFO "Iniciando proceso" -->
+<!-- # Ejemplo de verificación con logging -->
+<!-- if [ ! -f "archivo_requerido.txt" ]; then -->
+<!--     log ERROR "Archivo requerido no encontrado" -->
+<!--     exit 1 -->
+<!-- fi -->
+<!-- log INFO "Archivo encontrado, continuando..." -->
+<!-- ``` -->
 </div>
 </section>
 <section id="buenas-prácticas" class="slide level2 medium-par">
@@ -757,58 +739,67 @@
 <li class="fragment">Monitorear los logs regularmente</li>
 </ul>
 </div>
-<div class="fragment">
-<h3 id="para-monitoreo">Para monitoreo:</h3>
-<ul>
-<li class="fragment">Establecer alertas para recursos críticos</li>
-<li class="fragment">Mantener históricos de uso de recursos</li>
-<li class="fragment">Automatizar la limpieza de logs antiguos</li>
-</ul>
-</div>
+<!-- ::: fragment -->
+<!-- ### Para monitoreo: -->
+<!-- ::: {.incremental} -->
+<!-- - Establecer alertas para recursos críticos -->
+<!-- - Mantener históricos de uso de recursos -->
+<!-- - Automatizar la limpieza de logs antiguos -->
+<!-- ::: -->
+<!-- ::: -->
+<!-- --- -->
+<!-- ## Ejemplo Práctico Completo {.medium-par} -->
+<!-- Vamos a crear un sistema completo de automatización: -->
+<!-- ```bash -->
+<!-- # Estructura de archivos -->
+<!-- /home/usuario/ -->
+<!-- ├── scripts/ -->
+<!-- │   ├── procesar_datos.sh -->
+<!-- │   ├── monitoreo.sh -->
+<!-- │   └── limpiar_sistema.sh -->
+<!-- ├── logs/ -->
+<!-- ├── datos/ -->
+<!-- └── reportes/ -->
+<!-- ``` -->
+<!-- . . . -->
+<!-- **¡Implementemos un ejemplo completo paso a paso!** -->
+<!-- 1. Crear la estructura de directorios -->
+<!-- 2. Escribir scripts de procesamiento -->
+<!-- 3. Configurar monitoreo -->
+<!-- 4. Programar tareas en cron -->
+<!-- 5. Probar el sistema completo -->
 </section>
-<section id="ejemplo-práctico-completo" class="slide level2 medium-par scrollable">
-<h2>Ejemplo Práctico Completo</h2>
-<p>Vamos a crear un sistema completo de automatización:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href=""></a><span class="co"># Estructura de archivos</span></span>
-<span id="cb25-2"><a href=""></a><span class="ex">/home/usuario/</span></span>
-<span id="cb25-3"><a href=""></a><span class="ex">├──</span> scripts/</span>
-<span id="cb25-4"><a href=""></a><span class="ex">│</span>   ├── procesar_datos.sh</span>
-<span id="cb25-5"><a href=""></a><span class="ex">│</span>   ├── monitoreo.sh</span>
-<span id="cb25-6"><a href=""></a><span class="ex">│</span>   └── limpiar_sistema.sh</span>
-<span id="cb25-7"><a href=""></a><span class="ex">├──</span> logs/</span>
-<span id="cb25-8"><a href=""></a><span class="ex">├──</span> datos/</span>
-<span id="cb25-9"><a href=""></a><span class="ex">└──</span> reportes/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="fragment">
-<p><strong>¡Implementemos un ejemplo completo paso a paso!</strong></p>
-<ol type="1">
-<li>Crear la estructura de directorios</li>
-<li>Escribir scripts de procesamiento</li>
-<li>Configurar monitoreo</li>
-<li>Programar tareas en cron</li>
-<li>Probar el sistema completo</li>
-</ol>
-</div>
+<section id="resumiendo" class="slide level2">
+<h2>Resumiendo</h2>
+<ul>
+<li>Linux es el sistema operativo que usualmente utilizaremos cuando gestionamos servidores.</li>
+<li>Necesitamos aprender a utilizar la consola, al menos, a un nivel básico para poder interactuar con él.</li>
+<li>Con bash scripts podemos juntar varias instrucciones a la consola en un solo lugar. Además, tenemos acceso a opciones programáticas como asignación de variables.</li>
+<li>Es necesario entregar permiso de ejecución a los scripts, caso contrario no correrán.</li>
+<li>Podemos enviar salidas de comandos tanto a otros comandos (|) como a archivos (&gt; o &gt;&gt;).</li>
+<li>Con cron podemos correr bash scripts con la periodicidad que nos parezca adecuada</li>
+</ul>
 </section>
 <section id="torpedo-de-comandos" class="slide level2">
 <h2>Torpedo de Comandos</h2>
 <div class="columns">
 <div class="column" style="width:&quot;50%;">
 <p><strong>Navegación:</strong></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href=""></a><span class="bu">pwd</span>, ls <span class="at">-la,</span> cd, mkdir, cp, mv, rm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href=""></a><span class="bu">pwd</span>, ls <span class="at">-la,</span> cd, mkdir, cp, mv, rm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Visualización:</strong></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href=""></a><span class="fu">cat</span>, head, tail <span class="at">-f,</span> grep, wc <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href=""></a><span class="fu">cat</span>, head, tail <span class="at">-f,</span> grep, wc <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Sistema:</strong></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href=""></a><span class="fu">ps</span> aux, top, df <span class="at">-h,</span> free <span class="at">-h</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href=""></a><span class="fu">ps</span> aux, top, df <span class="at">-h,</span> free <span class="at">-h</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <p><strong>Cron:</strong></p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href=""></a><span class="fu">crontab</span> <span class="at">-l</span>    <span class="co"># listar tareas</span></span>
-<span id="cb29-2"><a href=""></a><span class="fu">crontab</span> <span class="at">-e</span>    <span class="co"># editar tareas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href=""></a><span class="fu">crontab</span> <span class="at">-l</span>    <span class="co"># listar tareas</span></span>
+<span id="cb25-2"><a href=""></a><span class="fu">crontab</span> <span class="at">-e</span>    <span class="co"># editar tareas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Permisos:</strong></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href=""></a><span class="fu">chmod</span> +x script.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href=""></a><span class="fu">chmod</span> +x script.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Redirecciones:</strong></p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href=""></a><span class="ex">comando</span> <span class="op">&gt;</span> archivo</span>
-<span id="cb31-2"><a href=""></a><span class="ex">comando</span> <span class="op">&gt;&gt;</span> archivo</span>
-<span id="cb31-3"><a href=""></a><span class="ex">comando</span> <span class="dv">2</span><span class="op">&gt;</span> errores.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href=""></a><span class="ex">comando</span> <span class="op">&gt;</span> archivo</span>
+<span id="cb27-2"><a href=""></a><span class="ex">comando</span> <span class="op">&gt;&gt;</span> archivo</span>
+<span id="cb27-3"><a href=""></a><span class="ex">comando</span> <span class="dv">2</span><span class="op">&gt;</span> errores.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
 <section id="material-de-consulta" class="slide level2">
